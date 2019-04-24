@@ -25,6 +25,12 @@ wget https://github.com/Racle/custom-ubuntu-setup/raw/master/Templates.tar.gz -O
 tar -xzvf Templates.tar.gz
 rm Templates.tar.gz
 
+echo ""
+echo "${bold}Install cheat${normal}"
+echo ""
+curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cheat
+sudo chmod +x /usr/local/bin/cheat
+
 ##
 echo ""
 echo "${bold}Install google-chrome${normal}"
@@ -65,5 +71,4 @@ cd /tmp
 sudo apt-select -C FI
 sudo mv /etc/apt/source.list  /etc/apt/source.list.bak
 sudo cp source.list /etc/apt/
-
 
