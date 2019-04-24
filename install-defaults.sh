@@ -8,6 +8,14 @@ sudo apt-get install zsh git apt-transport-https ca-certificates curl gnupg-agen
 
 ##
 echo ""
+echo "${bold}Install gnome templates${normal}"
+echo ""
+wget https://github.com/Racle/custom-ubuntu-setup/raw/master/Templates.tar.gz -O ~/Templates.tar.gz 
+tar -xzvf Templates.tar.gz
+rm Templates.tar.gz
+
+##
+echo ""
 echo "${bold}Install google-chrome${normal}"
 echo ""
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -46,3 +54,5 @@ cd /tmp
 sudo apt-select -C FI
 sudo mv /etc/apt/source.list  /etc/apt/source.list.bak
 sudo cp source.list /etc/apt/
+
+
