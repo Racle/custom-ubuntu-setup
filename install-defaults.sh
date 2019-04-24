@@ -4,7 +4,18 @@ normal=$(tput sgr0)
 ##
 echo "${bold}Install defaults${normal}"
 echo ""
-sudo apt-get install zsh git apt-transport-https ca-certificates curl gnupg-agent software-properties-common python3 python3-pip fonts-powerline
+sudo apt-get install zsh git apt-transport-https ca-certificates curl gnupg-agent software-properties-common python3 python3-pip fonts-powerline vim python-dev build-essential cmake python-software-properties
+
+echo ""
+echo "${bold}Install go${normal}"
+echo ""
+
+sudo snap install --classic go
+
+echo ""
+echo "${bold}Install nodejs 12${normal}"
+echo ""
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 
 ##
 echo ""
