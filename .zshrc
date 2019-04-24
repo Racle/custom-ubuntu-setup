@@ -74,6 +74,7 @@ plugins=(
   git
   zsh-autosuggestions
   docker
+  extract
 )
 
 source $ZSH/oh-my-zsh.sh
