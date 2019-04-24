@@ -4,7 +4,7 @@ normal=$(tput sgr0)
 ##
 echo "${bold}Install defaults${normal}"
 echo ""
-sudo apt-get install zsh git apt-transport-https ca-certificates curl gnupg-agent software-properties-common python3 python3-pip fonts-powerline vim python-dev build-essential cmake python-software-properties
+sudo apt-get install zsh git apt-transport-https ca-certificates curl gnupg-agent software-properties-common python3 python3-pip fonts-powerline vim python-dev build-essential cmake python-software-properties xsel rlwrap
 
 echo ""
 echo "${bold}Install go${normal}"
