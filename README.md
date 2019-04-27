@@ -14,3 +14,6 @@ curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/in
 ```
 wget https://raw.githubusercontent.com/Racle/vimfiles/master/.vimrc -O ~/.vimrc
 ```
+
+### tips
+<https://github.com/utkuufuk/ubuntu-on-steroids/blob/master/README.md>

@@ -1,0 +1,26 @@
+[/]
+quake-active-monitor=true
+session-name='Local'
+sidebar-on-right=false
+paste-advanced-default=false
+quake-width-percent=100
+quake-specific-monitor=0
+prompt-on-close=true
+tab-position='top'
+terminal-title-style='small'
+unsafe-paste-alert=true
+window-style='normal'
+theme-variant='dark'
+
+[keybindings]
+terminal-advanced-paste='<Primary><Shift><Alt>v'
+nautilus-open='<Primary><Alt>t'
+app-shortcuts='<Primary>question'
+session-synchronize-input='<Primary><Alt>Return'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+notify-silence-threshold=60
+font='Hack 9'
+notify-silence-enabled=true
+visible-name='Default'
+use-system-font=false

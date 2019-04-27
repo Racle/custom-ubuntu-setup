@@ -4,7 +4,17 @@ normal=$(tput sgr0)
 ##
 echo "${bold}Install zsh and powerline fonts${normal}"
 echo ""
-sudo apt-get install zsh fonts-powerline
+# sudo apt-get install zsh fonts-powerline
+# just to be sure and getting latest fonts, git clone
+cd /tmp/
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
 
 ##
 echo ""
