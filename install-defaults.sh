@@ -22,7 +22,8 @@ sudo apt-get install zsh \
                      xsel \
                      rlwrap \
                      gnome-tweak-tool \
-                     tilix
+                     tilix \
+                     code
 
 echo ""
 echo "${bold}Install go${normal}"
