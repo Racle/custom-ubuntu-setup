@@ -51,6 +51,7 @@ echo ""
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
 settings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
 gsettings get org.gnome.settings-daemon.plugins.media-keys home '<Super>e'
+gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 
 ##
 echo ""
