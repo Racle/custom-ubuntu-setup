@@ -1,8 +1,10 @@
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
 visible-name='Default'
 bold-is-bright=false
+default-size-columns=160
+default-size-rows=48
 use-system-font=false
-font='Hack 9'
+font='Hack 10'
 notify-silence-enabled=true
 notify-silence-threshold=60
 background-transparency-percent=5
