@@ -36,6 +36,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
   git
   zsh-autosuggestions
+  zsh-syntax-highlighting
   docker
   extract
 )
