@@ -8,6 +8,7 @@ export PATH="$HOME/scripts/:$PATH"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH:$GOBIN
+export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
   export ZSH=$HOME/.oh-my-zsh
