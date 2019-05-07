@@ -8,7 +8,7 @@ export PATH="$HOME/scripts/:$PATH"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH:$GOBIN
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
   export ZSH=$HOME/.oh-my-zsh
@@ -63,5 +63,8 @@ unset zle_bracketed_paste
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte-*.sh
 fi
+
+alias set_xterm_color="export TERM=\"xterm-256color\""
+alias set_screen_color="export TERM=\"screen-256color\""
 
 return ok
