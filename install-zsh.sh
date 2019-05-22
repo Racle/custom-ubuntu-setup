@@ -30,7 +30,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 echo ""
 echo "${bold}Get custom setup${normal}"
 echo ""
-wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/.zshrc -O ~/.zshrc
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/.zshrc -O ~/.zshrc
 
 ##
 echo ""

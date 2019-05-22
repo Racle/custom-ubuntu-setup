@@ -40,7 +40,7 @@ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 echo ""
 echo "${bold}Install gnome templates${normal}"
 echo ""
-wget https://github.com/Racle/custom-ubuntu-setup/raw/master/Templates.tar.gz -O ~/Templates.tar.gz 
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/Templates.tar.gz -O ~/Templates.tar.gz 
 tar -xzvf Templates.tar.gz
 rm Templates.tar.gz
 
@@ -61,7 +61,7 @@ sudo update-alternatives --config x-terminal-emulator
 
 # Get config file
 # dconf dump /com/gexperts/Tilix/ > ~/tilix.dconf
-wget https://github.com/Racle/custom-ubuntu-setup/raw/master/tilix.dconf -O ~/tilix.dconf
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/tilix.dconf -O ~/tilix.dconf
 dconf load /com/gexperts/Tilix/ < ~/tilix.dconf
 rm ~/tilix.dconf
 
@@ -121,3 +121,11 @@ sudo apt-select -C FI
 sudo mv /etc/apt/source.list  /etc/apt/source.list.bak
 sudo cp source.list /etc/apt/
 
+##
+echo ""
+echo "${bold}Install PulseEffects and Racle preset${normal}"
+echo ""
+sudo add-apt-repository ppa:mikhailnov/pulseeffects -y
+sudo apt install pulseeffects pulseaudio --install-recommends
+mkdir -p ~/.config/pulse/presets
+wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/PulseEffectsRacle.preset -O ~/.config/pulse/presets/Racle.preset
