@@ -66,6 +66,8 @@ wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/ti
 dconf load /com/gexperts/Tilix/ < ~/tilix.dconf
 rm ~/tilix.dconf
 
+#get phpstorm default watchers
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/watchers.xml -O ~/watchers.xml
 
 echo ""
 echo "${bold}Install cheat${normal}"
