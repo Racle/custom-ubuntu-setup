@@ -24,7 +24,8 @@ sudo apt-get install zsh \
                      gnome-tweak-tool \
                      tilix \
                      code \
-                     shellcheck
+                     shellcheck \
+                     redshift
 
 echo ""
 echo "${bold}Install go${normal}"
