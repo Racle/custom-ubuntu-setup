@@ -133,3 +133,10 @@ sudo add-apt-repository ppa:mikhailnov/pulseeffects -y
 sudo apt install pulseeffects pulseaudio --install-recommends
 mkdir -p ~/.config/pulse/presets
 wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/PulseEffectsRacle.preset -O ~/.config/pulse/presets/Racle.preset
+
+##
+echo ""
+echo "${bold}Set menu key to super key${normal}"
+touch ~/.xmodmaprc
+echo "keycode 135 = Super_R" >> ~/.xmodmaprc
+echo ""
