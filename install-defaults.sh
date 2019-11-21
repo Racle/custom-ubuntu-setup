@@ -137,6 +137,5 @@ wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/fil
 ##
 echo ""
 echo "${bold}Set menu key to super key${normal}"
-touch ~/.xmodmaprc
-echo "keycode 135 = Super_R" >> ~/.xmodmaprc
+sudo sed -i 's/Menu/Super_R/'  /usr/share/X11/xkb/symbols/pc
 echo ""
