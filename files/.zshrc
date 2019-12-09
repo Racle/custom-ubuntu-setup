@@ -8,6 +8,7 @@ export PATH="$HOME/scripts/:$PATH"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH:$GOBIN
+export ANSIBLE_INVENTORY=~/.ansible-hosts
 #export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
