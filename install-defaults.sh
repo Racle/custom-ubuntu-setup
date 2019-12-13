@@ -4,7 +4,7 @@ normal=$(tput sgr0)
 ##
 echo "${bold}Install defaults${normal}"
 echo ""
-sudo apt-get install zsh \
+sudo apt-get install -y zsh \
                      git \
                      apt-transport-https \
                      ca-certificates \
@@ -103,7 +103,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 ##
 echo ""
@@ -130,7 +130,7 @@ echo ""
 echo "${bold}Install PulseEffects and Racle preset${normal}"
 echo ""
 sudo add-apt-repository ppa:mikhailnov/pulseeffects -y
-sudo apt install pulseeffects pulseaudio --install-recommends
+sudo apt-get install -y pulseeffects pulseaudio --install-recommends
 mkdir -p ~/.config/pulse/presets
 wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/PulseEffectsRacle.preset -O ~/.config/pulse/presets/Racle.preset
 
