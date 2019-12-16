@@ -21,8 +21,7 @@ echo ""
 echo "${bold}Install oh-my-zsh and theme+plugin${normal}"
 echo ""
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# no need for custom folder git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/themes/powerlevel9k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
@@ -31,6 +30,7 @@ echo ""
 echo "${bold}Get custom setup${normal}"
 echo ""
 wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/.zshrc -O ~/.zshrc
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/.p10k.zsh -O ~/.p10k.zsh
 
 ##
 echo ""
