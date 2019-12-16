@@ -31,6 +31,7 @@ echo "${bold}Get custom setup${normal}"
 echo ""
 wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/.zshrc -O ~/.zshrc
 wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/.p10k.zsh -O ~/.p10k.zsh
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/.docker_aliases -O ~/.docker_aliases
 
 ##
 echo ""
