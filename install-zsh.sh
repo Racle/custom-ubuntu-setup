@@ -41,9 +41,11 @@ sudo rm /root/.oh-my-zsh
 sudo rm /root/.zshrc
 sudo ln -s $HOME/.oh-my-zsh /root/
 sudo ln -s $HOME/.zshrc /root/
+sudo ln -s $HOME/.p10k.zsh /root/
+sudo ln -s $HOME/.docker_aliases /root/
 
 ##
 echo ""
 echo "${bold}Set zsh as default shell${normal}"
 echo ""
-chsh -s $(which zsh)
+echo "run chsh -s $(which zsh) manually"
