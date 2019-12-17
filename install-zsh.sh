@@ -2,7 +2,7 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 ##
-echo "${bold}Install zsh and powerline fonts${normal}"
+sudo echo "${bold}Install zsh and powerline fonts${normal}"
 echo ""
 sudo apt-get install -y zsh
 # just to be sure and getting latest fonts, git clone

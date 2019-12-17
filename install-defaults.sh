@@ -2,7 +2,7 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 ##
-echo "${bold}Install defaults${normal}"
+sudo echo "${bold}Install defaults${normal}"
 echo ""
 sudo apt-get install -y zsh \
                      git \

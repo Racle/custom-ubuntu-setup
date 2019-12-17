@@ -2,12 +2,12 @@
 
 ## install defaults + configs
 ```
-curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-defaults.sh | sudo sh -
+curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-defaults.sh | sh -
 ```
 
 ## install zhs + config
 ```
-curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-zsh.sh | sudo sh -
+curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-zsh.sh | sh -
 ```
 ## install vimconfig 
 <https://github.com/Racle/vimfiles>
