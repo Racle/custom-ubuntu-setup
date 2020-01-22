@@ -70,6 +70,7 @@ alias set_xterm_color="export TERM=\"xterm-256color\""
 alias set_screen_color="export TERM=\"screen-256color\""
 alias gitmergedevtomaster="git checkout develop && git pull && git push && git checkout master && git pull && git merge develop && git pull && git push && git checkout develop && git pull"
 alias spacesniffer="ncdu"
+alias df='df -x"squashfs"'
 
 # stop screen freezing
 stty stop undef
