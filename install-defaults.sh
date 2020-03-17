@@ -137,5 +137,5 @@ wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/fil
 ##
 echo ""
 echo "${bold}Set menu key to super key${normal}"
-sudo sed -i 's/Menu/Super_R/'  /usr/share/X11/xkb/symbols/pc
+sudo sed -i 's/Menu/Super_R/' /usr/share/X11/xkb/symbols/pc
 echo ""
