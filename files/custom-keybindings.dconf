@@ -1,0 +1,28 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']
+screensaver=['<Primary><Shift><Alt>l']
+
+[custom-keybindings/custom0]
+binding='<Super>e'
+command='nautilus'
+name='Open file explorer'
+
+[custom-keybindings/custom1]
+binding='<Super>Tab'
+command=' dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
+name='Audio play/pause'
+
+[custom-keybindings/custom2]
+binding='<Super>space'
+command='albert toggle'
+name='Albert toggle'
+
+[custom-keybindings/custom3]
+binding='<Primary><Alt>p'
+command='gnome-terminal --window-with-profile=Irssi -- ssh SSH_URL'
+name='Irssi'
+
+[custom-keybindings/custom4]
+binding='<Super>v'
+command='copyq -e "menu()"'
+name='Copyq toggle'

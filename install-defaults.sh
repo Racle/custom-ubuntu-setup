@@ -46,14 +46,58 @@ wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/Te
 tar -xzvf Templates.tar.gz
 rm Templates.tar.gz
 
-##
+
+# old 
+#gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
+#settings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
+#gsettings set org.gnome.settings-daemon.plugins.media-keys home '<Super>e'
+#gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
+#gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Shift><Super>Left']"  
+#gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Shift><Super>Right']"  
+
+
+# get configs
+#dconf dump /org/gnome/desktop/wm/keybindings/  > keybindings.dconf
+
+#remember to set SSH_URL to file
+#dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/  > custom-keybindings.dconf
+
+#dconf dump /org/gnome/terminal/legacy/profiles:/  > terminal-profiles.dconf
+
+echo ""
+echo "${bold}Set keybinds${normal}"
+echo ""
+
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/keybindings.dconf -O ~/keybindings.dconf
+dconf load /org/gnome/desktop/wm/keybindings/ < ~/keybindings.dconf
+rm ~/keybindings.dconf
+
+
 echo ""
 echo "${bold}Set custom keybinds${normal}"
 echo ""
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
-settings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
-gsettings get org.gnome.settings-daemon.plugins.media-keys home '<Super>e'
-gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
+
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/custom-keybindings.dconf -O ~/custom-keybindings.dconf
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < ~/custom-keybindings.dconf
+rm ~/custom-keybindings.dconf
+
+echo ""
+echo "${bold}Set terminal profiles${normal}"
+echo ""
+echo "${bold}Set SSH user@url: ${normal}"
+read ssh_url
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/terminal-profiles.dconf -O ~/terminal-profiles.dconf
+sed -ri "s/SSH_URL/$ssh_url/" ~/custom-keybindings.dconf
+dconf load /org/gnome/terminal/legacy/profiles:/ < ~/terminal-profiles.dconf
+rm ~/terminal-profiles.dconf
+
+
+##
+echo ""
+echo "${bold}Set menu key to super key${normal}"
+sudo sed -i 's/Menu/Super_R/' /usr/share/X11/xkb/symbols/pc
+echo ""
+
 
 ##
 echo ""
@@ -134,8 +178,3 @@ sudo apt-get install -y pulseeffects pulseaudio --install-recommends
 mkdir -p ~/.config/pulse/presets
 wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/PulseEffectsRacle.preset -O ~/.config/pulse/presets/Racle.preset
 
-##
-echo ""
-echo "${bold}Set menu key to super key${normal}"
-sudo sed -i 's/Menu/Super_R/' /usr/share/X11/xkb/symbols/pc
-echo ""
