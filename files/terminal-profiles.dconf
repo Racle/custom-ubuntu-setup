@@ -7,7 +7,7 @@ bold-is-bright=true
 cursor-colors-set=false
 default-size-columns=140
 default-size-rows=511
-font='Fira Mono for Powerline 11'
+font='Hack 10'
 foreground-color='rgb(255,255,255)'
 highlight-colors-set=false
 palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,205)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(250,235,215)', 'rgb(64,64,64)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(0,0,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
@@ -15,6 +15,6 @@ visible-name='Irssi'
 
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 custom-command='/bin/bash'
-font='Fira Mono for Powerline 11'
+font='Hack 10'
 login-shell=false
 use-custom-command=false
