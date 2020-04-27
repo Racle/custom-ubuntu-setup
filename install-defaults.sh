@@ -47,15 +47,6 @@ tar -xzvf Templates.tar.gz
 rm Templates.tar.gz
 
 
-# old 
-#gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
-#settings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
-#gsettings set org.gnome.settings-daemon.plugins.media-keys home '<Super>e'
-#gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
-#gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Shift><Super>Left']"  
-#gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Shift><Super>Right']"  
-
-
 # get configs
 #dconf dump /org/gnome/desktop/wm/keybindings/  > keybindings.dconf
 
@@ -178,3 +169,15 @@ sudo apt-get install -y pulseeffects pulseaudio --install-recommends
 mkdir -p ~/.config/pulse/presets
 wget wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/PulseEffectsRacle.preset -O ~/.config/pulse/presets/Racle.preset
 
+echo ""
+echo "${bold}Install albert and config${normal}"
+echo ""
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
+wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
+sudo apt-key add - < Release.key
+sudo apt-get update
+sudo apt-get install albert
+mkdir -p ~/.local/share/albert/org.albert.extension.python/modules/
+mkdir -p ~/.config/albert
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/window_switcher_plus.py -O ~/.local/share/albert/org.albert.extension.python/modules/window_switcher_plus.py
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/albert.conf -O ~/.config/albert/albert.conf
