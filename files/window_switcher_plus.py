@@ -88,13 +88,13 @@ def createItems(windows, spans=None):
     
     
         # custom icon search
-        icon = getIcon(win.wm_class.replace('org.gnome.', '').split('.')[0])        
+        icon = getIcon(remove_prefix(win.wm_class, 'org.gnome.').split('.')[0])        
         # ex. teams is using host as "teams" instead of real hostname. This fixes teams icon
         if icon.strip() == '' and win.host.split('.')[0] != hostname:
             icon = getIcon(win.host.split('.')[0])   
         #ex fixes gnome-terminal
         if icon.strip() == '' and len(win.wm_class.replace('org.gnome.', '').split('.')) > 1:
-            icon = getIcon(win.wm_class.replace('org.gnome.', '').split('.')[1].replace('-','.'))    
+            icon = getIcon(remove_prefix(win.wm_class, 'org.gnome.').split('.')[1].replace('-','.'))    
 
         
         results.append( Item(id="%s%s" % (__prettyname__, win.wm_class),
@@ -286,7 +286,7 @@ def getIconPath(icon, path):
 
 def getIcon(icon):
     # lstrip for chrome installed apps
-    icon = icon.lower().lstrip('crx_')
+    icon = remove_prefix(icon.lower(), 'crx_')
     # check "normal way" first
     result = iconLookup(icon)
     # continue to custom search
@@ -295,3 +295,8 @@ def getIcon(icon):
         if not result.startswith('/'):
             result = iconLookup(result)
     return result
+
+def remove_prefix(text, prefix):
+    if text.startswith(prefix):
+        return text[len(prefix):]
+    return text
