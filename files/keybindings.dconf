@@ -1,5 +1,5 @@
 [/]
-minimize=['<Super>g']
+minimize=['<Primary><Super>f']
 switch-input-source=@as []
 switch-input-source-backward=@as []
 switch-to-workspace-left=['']
