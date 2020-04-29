@@ -9,4 +9,4 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < terminal-profiles.dconf
 dconf load /com/gexperts/Tilix/ < tilix.dconf
 dconf load /org/gnome/shell/extensions/pop-shell/ < pop_shell.dconf
 
-sed -i 's/ssh .*$/ssh SSH_URL /' custom-keybindings.dconf
+sed -i "s/ssh .*$/ssh SSH_URL'/" custom-keybindings.dconf

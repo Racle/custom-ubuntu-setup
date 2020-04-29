@@ -15,7 +15,7 @@ name='Albert toggle'
 
 [custom3]
 binding='<Primary><Alt>p'
-command='gnome-terminal --window-with-profile=Irssi -- ssh SSH_URL 
+command='gnome-terminal --window-with-profile=Irssi -- ssh SSH_URL'
 name='Irssi'
 
 [custom4]
