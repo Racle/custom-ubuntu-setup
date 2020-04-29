@@ -5,9 +5,14 @@
 curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-defaults.sh | sh -
 ```
 
-## install zhs + config
+## install zhs 
 ```
 curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-zsh.sh | sh -
+```
+
+## update keybindings + config
+```
+curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/update-settings.sh | sh -
 ```
 ## install vimconfig 
 <https://github.com/Racle/vimfiles>

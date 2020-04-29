@@ -13,6 +13,20 @@ highlight-colors-set=false
 palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,205)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(250,235,215)', 'rgb(64,64,64)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(0,0,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
 visible-name='Irssi'
 
+[:90a2a4a1-3af7-463e-af07-b9c55acd51c9]
+background-color='rgb(0,0,0)'
+bold-color-same-as-fg=true
+cursor-foreground-color='rgb(8,79,188)'
+font='Hack 10'
+foreground-color='rgb(211,215,207)'
+highlight-background-color='rgb(8,79,188)'
+highlight-foreground-color='rgb(255,255,255)'
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Irssi'
+
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 custom-command='/bin/bash'
 font='Hack 10'

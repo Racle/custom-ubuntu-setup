@@ -1,4 +1,5 @@
 [/]
+advanced-paste-replace-crlf=false
 app-title='${appName}: ${activeTerminalTitle}'
 paste-advanced-default=false
 paste-strip-first-char=true
@@ -19,10 +20,10 @@ window-style='normal'
 [keybindings]
 app-shortcuts='<Primary>question'
 nautilus-open='<Primary><Alt>t'
-session-switch-to-terminal-up='<Primary><Alt>Up'
+session-switch-to-terminal-down='<Primary><Alt>Down'
 session-switch-to-terminal-left='<Primary><Alt>Left'
 session-switch-to-terminal-right='<Primary><Alt>Right'
-session-switch-to-terminal-down='<Primary><Alt>Down'
+session-switch-to-terminal-up='<Primary><Alt>Up'
 session-synchronize-input='<Primary><Alt>Return'
 terminal-advanced-paste='<Primary><Shift>v'
 terminal-copy='<Primary>c'
