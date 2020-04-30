@@ -43,6 +43,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   fzf-zsh
+  zsh-better-npm-completion
 )
 
 source $ZSH/oh-my-zsh.sh
