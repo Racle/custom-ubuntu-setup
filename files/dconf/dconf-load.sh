@@ -1,4 +1,7 @@
 #!/bin/sh
+BASEDIR=$(dirname "$0")
+cd "$BASEDIR"
+
 echo "${bold}Set SSH user@url: ${normal}"
 read ssh_url
 sed -ri "s/SSH_URL/$ssh_url/" custom-keybindings.dconf

@@ -1,33 +1,33 @@
-# Installation
+# Custom-~~ubuntu~~pop_os-setup
 
-## install defaults + configs
+## Dotfiles
+<https://github.com/Racle/dotfiles>
+
+## Installation
+
+### install defaults + few configs + gnome templates
 ```
 curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-defaults.sh | sh -
 ```
 
-## install zhs 
+### install zhs 
 ```
 curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-zsh.sh | sh -
 ```
 
-## update keybindings + config
+### update keybindings + config + dotfiles
 ```
 curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/update-settings.sh | sh -
 ```
-## install vimconfig 
+### install vimconfig 
 <https://github.com/Racle/vimfiles>
 ```
 wget https://raw.githubusercontent.com/Racle/vimfiles/master/.vimrc -O ~/.vimrc
 ```
-## Gnome extensions
-Protip: use firefox to install
+### Gnome extensions
 
-- <https://extensions.gnome.org/extension/307/dash-to-dock/>
-- <https://extensions.gnome.org/extension/19/user-themes/>
-  - After installing this, change shell theme to dark
-- <https://extensions.gnome.org/extension/1085/simple-net-speed/>
+#### Copy from old machine
+`~/./local/share/gnome-shell/extensions/`
 
-
-
-### tips
+#### tips
 <https://github.com/utkuufuk/ubuntu-on-steroids/blob/master/README.md>

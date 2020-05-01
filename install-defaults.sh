@@ -1,6 +1,12 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
+
+echo ""
+echo "${bold}Install nodejs 12 repo${normal}"
+echo ""
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
 ##
 sudo echo "${bold}Install defaults${normal}"
 echo ""
@@ -10,7 +16,6 @@ sudo apt-get install -y zsh \
                      ca-certificates \
                      curl \
                      gnupg-agent \
-                     software-properties-common \
                      python3 \
                      python3-pip \
                      fonts-powerline \
@@ -18,7 +23,6 @@ sudo apt-get install -y zsh \
                      python-dev \
                      build-essential \
                      cmake \
-                     python-software-properties \
                      xsel \
                      rlwrap \
                      gnome-tweak-tool \
@@ -26,25 +30,27 @@ sudo apt-get install -y zsh \
                      code \
                      shellcheck \
                      redshift \
-                     snapd
+                     snapd \
+                     stow \
+                     nodejs \
+                     chrome-gnome-shell
+
+
+## doesn't work on pop_os
+#echo ""
+#echo "${bold}Change apt mirror to FI${normal}"
+#echo ""
+#sudo pip3 install apt-select
+#cd /tmp
+#sudo apt-select -C FI
+#sudo mv /etc/apt/source.list  /etc/apt/source.list.bak
+#sudo cp source.list /etc/apt/
+
 ##
 echo ""
 echo "${bold}Install go${normal}"
 echo ""
 sudo snap install --classic go
-
-echo ""
-echo "${bold}Install nodejs 12${normal}"
-echo ""
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-
-##
-echo ""
-echo "${bold}Install gnome templates${normal}"
-echo ""
-wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/Templates.tar.gz -O ~/Templates.tar.gz 
-tar -xzvf Templates.tar.gz
-rm Templates.tar.gz
 
 ##
 echo ""
@@ -94,15 +100,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo usermod -aG docker $USER
 newgrp docker
 
-##
-echo ""
-echo "${bold}Change apt mirror to FI${normal}"
-echo ""
-sudo pip3 install apt-select
-cd /tmp
-sudo apt-select -C FI
-sudo mv /etc/apt/source.list  /etc/apt/source.list.bak
-sudo cp source.list /etc/apt/
 
 ##
 echo ""
@@ -113,3 +110,12 @@ wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu
 sudo apt-key add - < Release.key
 sudo apt-get update
 sudo apt-get install albert
+
+
+##
+echo ""
+echo "${bold}Install gnome templates${normal}"
+echo ""
+wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/Templates.tar.gz -O ~/Templates.tar.gz 
+tar -xzvf Templates.tar.gz
+rm Templates.tar.gz
