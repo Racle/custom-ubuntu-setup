@@ -80,7 +80,7 @@ rm ~/discord.deb
 echo ""
 echo "${bold}Install docker + docker-compose${normal}"
 echo ""
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    bionic \
