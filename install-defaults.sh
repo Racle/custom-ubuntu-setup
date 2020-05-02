@@ -1,6 +1,10 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
+echo ""
+echo "${bold}Set ubuntu mirror to fi${normal}"
+echo ""
+sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list
 
 echo ""
 echo "${bold}Install nodejs 12 repo${normal}"
@@ -8,6 +12,7 @@ echo ""
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
 ##
+echo ""
 sudo echo "${bold}Install defaults${normal}"
 echo ""
 sudo apt-get install -y zsh \
@@ -33,18 +38,9 @@ sudo apt-get install -y zsh \
                      snapd \
                      stow \
                      nodejs \
-                     chrome-gnome-shell
-
-
-## doesn't work on pop_os
-#echo ""
-#echo "${bold}Change apt mirror to FI${normal}"
-#echo ""
-#sudo pip3 install apt-select
-#cd /tmp
-#sudo apt-select -C FI
-#sudo mv /etc/apt/source.list  /etc/apt/source.list.bak
-#sudo cp source.list /etc/apt/
+                     chrome-gnome-shell \
+                     xclip \
+                     copyq
 
 ##
 echo ""
@@ -76,7 +72,7 @@ rm ~/chrome.deb
 echo ""
 echo "${bold}Install discord${normal}"
 echo ""
-wget https://discordapp.com/api/download?platform=linux&format=deb -O ~/discord.deb
+wget "https://discordapp.com/api/download?platform=linux&format=deb" -O ~/discord.deb
 sudo dpkg -i ~/discord.deb
 rm ~/discord.deb
 
@@ -96,10 +92,9 @@ echo ""
 echo "${bold}Check latest version at https://docs.docker.com/compose/install/${normal}"
 echo ""
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo usermod -aG docker $USER
-newgrp docker
-
+#sudo chmod +x /usr/local/bin/docker-compose
+#sudo usermod -aG docker $USER
+#newgrp docker
 
 ##
 echo ""
@@ -108,14 +103,20 @@ echo ""
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
 wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
 sudo apt-key add - < Release.key
+rm Release.key
 sudo apt-get update
-sudo apt-get install albert
-
+sudo apt-get instal -y albert
 
 ##
 echo ""
 echo "${bold}Install gnome templates${normal}"
 echo ""
-wget https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/files/Templates.tar.gz -O ~/Templates.tar.gz 
-tar -xzvf Templates.tar.gz
-rm Templates.tar.gz
+cp ./files/Templates.tar.gz ~/Templates.tar.gz 
+tar -xzvf ~/Templates.tar.gz
+rm ~/Templates.tar.gz
+
+##
+echo ""
+echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
+echo ""
+echo "sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip

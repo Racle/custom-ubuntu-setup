@@ -1,0 +1,56 @@
+[auto-move-windows]
+application-list=['teams.desktop:2', 'chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default.desktop:2', 'jetbrains-phpstorm.desktop:1']
+
+[dash-to-dock]
+apply-custom-theme=true
+click-action='previews'
+dock-position='BOTTOM'
+intellihide-mode='FOCUS_APPLICATION_WINDOWS'
+multi-monitor=true
+preferred-monitor=0
+require-pressure-to-show=false
+scroll-action='cycle-windows'
+
+[gnomesome/prefs]
+inner-gaps=0
+outer-gaps=0
+pointer-follows-focus=false
+
+[kylecorry31-do-not-disturb]
+show-icon=false
+
+[netspeed]
+device='ens33'
+show-sum=false
+
+[panel-osd]
+force-expand=true
+test-notification=false
+x-pos=99.0
+x-res=false
+y-pos=2.0
+y-res=false
+
+[pop-shell]
+active-hint=true
+focus-monitor-left=@as []
+focus-monitor-right=@as []
+gap-inner=uint32 0
+gap-outer=uint32 1
+show-title=true
+snap-to-grid=false
+tile-by-default=true
+tile-resize-down=['<Shift>Up']
+tile-resize-left=['<Shift>Right']
+tile-resize-right=['<Shift>Left']
+tile-resize-up=['<Shift>Down']
+
+[simplenetspeed]
+fontmode=3
+mode=3
+
+[tilix-dropdown]
+key=['F10']
+
+[user-theme]
+name='Pop-dark'

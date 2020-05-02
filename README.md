@@ -5,19 +5,30 @@
 
 ## Installation
 
+```
+git clone https://github.com/Racle/custom-ubuntu-setup.git
+cd custom-ubuntu-setup
+```
+
+## Install all
+```
+make install
+```
+
+## Install seperately
 ### install defaults + few configs + gnome templates
 ```
-curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-defaults.sh | sh -
+make defaults
 ```
 
 ### install zhs 
 ```
-curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/install-zsh.sh | sh -
+make zsh
 ```
 
 ### update keybindings + config + dotfiles
 ```
-curl -fsSL https://raw.githubusercontent.com/Racle/custom-ubuntu-setup/master/update-settings.sh | sh -
+make update
 ```
 ### install vimconfig 
 <https://github.com/Racle/vimfiles>

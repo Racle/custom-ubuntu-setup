@@ -33,4 +33,4 @@ git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/c
 echo ""
 echo "${bold}Set zsh as default shell${normal}"
 echo ""
-echo "run \"chsh -s $(which zsh)\" manually"
+chsh -s $(which zsh)
