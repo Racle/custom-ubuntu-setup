@@ -28,9 +28,11 @@ git clone https://github.com/junegunn/fzf.git ~/.oh-my-zsh/custom/plugins/fzf
 ~/.oh-my-zsh//custom/plugins/fzf/install --bin
 git clone https://github.com/Treri/fzf-zsh.git ~/.oh-my-zsh/custom/plugins/fzf-zsh
 git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion
+git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
 
 ##
 echo ""
 echo "${bold}Set zsh as default shell${normal}"
 echo ""
 chsh -s $(which zsh)
+sudo su -s /bin/bash -c 'chsh -s $(which zsh)' root
