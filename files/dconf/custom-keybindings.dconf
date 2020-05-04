@@ -1,8 +1,14 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']
+area-screenshot=@as []
+area-screenshot-clip=@as []
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/']
 email=@as []
 home=@as []
 screensaver=['<Primary><Shift><Alt>l']
+screenshot=@as []
+screenshot-clip=@as []
+window-screenshot=@as []
+window-screenshot-clip=@as []
 
 [custom-keybindings/custom0]
 binding='<Super>e'
@@ -28,3 +34,28 @@ name='Irssi'
 binding='<Super>v'
 command='copyq -e "menu()"'
 name='Copyq toggle'
+
+[custom-keybindings/custom5]
+binding='Print'
+command='flameshot gui -p Pictures'
+name='Flameshot'
+
+[custom-keybindings/custom6]
+binding='<Shift>Print'
+command='flameshot gui -p Pictures'
+name='Flameshot Alternative'
+
+[custom-keybindings/custom7]
+binding='<Primary>Print'
+command='flameshot gui -p Pictures -d 3000'
+name='Flameshot Delay'
+
+[custom-keybindings/custom8]
+binding='<Alt>Print'
+command='flameshot screen -c -p Pictures'
+name='Flameshot Current Monitor'
+
+[custom-keybindings/custom9]
+binding=''
+command='flameshot full -c -p Pictures'
+name='Flameshot All Monitors'

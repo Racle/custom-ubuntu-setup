@@ -40,7 +40,8 @@ sudo apt-get install -y zsh \
                      nodejs \
                      chrome-gnome-shell \
                      xclip \
-                     copyq
+                     copyq \
+                     flameshot
 
 ##
 echo ""
