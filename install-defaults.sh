@@ -41,7 +41,10 @@ sudo apt-get install -y zsh \
                      chrome-gnome-shell \
                      xclip \
                      copyq \
-                     flameshot
+                     flameshot \
+                     silversearcher-ag \
+                     powerline \
+                     tmux
 
 ##
 echo ""
@@ -115,6 +118,12 @@ echo ""
 cp ./files/Templates.tar.gz ~/Templates.tar.gz 
 tar -xzvf ~/Templates.tar.gz
 rm ~/Templates.tar.gz
+
+##
+echo ""
+echo "${bold}Install tmux plugin manager${normal}"
+echo ""
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ##
 echo ""
