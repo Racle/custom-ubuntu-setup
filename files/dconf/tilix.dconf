@@ -1,33 +1,48 @@
 [/]
 advanced-paste-replace-crlf=false
+advanced-paste-replace-tabs=false
 app-title='${appName}: ${activeTerminalTitle}'
+control-scroll-zoom=false
+focus-follow-mouse=false
+new-instance-mode='new-window'
 paste-advanced-default=false
 paste-strip-first-char=true
 prompt-on-close=true
+prompt-on-new-session=false
 quake-active-monitor=true
 quake-specific-monitor=0
 quake-width-percent=100
 session-name='${title}'
 sidebar-on-right=false
 tab-position='top'
+terminal-title-show-when-single=false
 terminal-title-style='small'
 theme-variant='dark'
 unsafe-paste-alert=true
 use-overlay-scrollbar=true
 use-tabs=true
+window-save-state=false
+window-state=87040
 window-style='normal'
 
 [keybindings]
+app-new-session='<Primary><Alt>t'
+app-new-window='<Primary><Alt>n'
 app-shortcuts='<Primary>question'
 nautilus-open='<Primary><Alt>t'
+session-open='disabled'
+session-save='disabled'
+session-switch-to-next-terminal='disabled'
+session-switch-to-previous-terminal='disabled'
 session-switch-to-terminal-down='<Primary><Alt>Down'
 session-switch-to-terminal-left='<Primary><Alt>Left'
 session-switch-to-terminal-right='<Primary><Alt>Right'
 session-switch-to-terminal-up='<Primary><Alt>Up'
 session-synchronize-input='<Primary><Alt>Return'
-terminal-advanced-paste='<Primary><Shift>v'
-terminal-copy='<Primary>c'
-terminal-paste='<Primary>v'
+terminal-advanced-paste='<Primary><Shift><Alt>v'
+terminal-copy='<Primary><Shift>c'
+terminal-paste='<Primary><Shift>v'
+win-view-sidebar='F12'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
 background-transparency-percent=5
@@ -38,8 +53,10 @@ default-size-rows=48
 dim-transparency-percent=12
 font='Hack 10'
 login-shell=true
-notify-silence-enabled=true
+notify-silence-enabled=false
 notify-silence-threshold=60
+scroll-on-output=false
+show-scrollbar=true
 terminal-title='${title}'
 use-system-font=false
 visible-name='Default'

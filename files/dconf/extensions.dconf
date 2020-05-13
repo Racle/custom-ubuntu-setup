@@ -1,5 +1,5 @@
 [auto-move-windows]
-application-list=['teams.desktop:2', 'chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default.desktop:2', 'jetbrains-phpstorm.desktop:1']
+application-list=['teams.desktop:1', 'chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default.desktop:1', 'jetbrains-phpstorm.desktop:2']
 
 [dash-to-dock]
 apply-custom-theme=true

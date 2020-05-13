@@ -2,5 +2,5 @@
 action-double-click-titlebar='toggle-maximize'
 action-middle-click-titlebar='minimize'
 button-layout=':maximize,close'
-focus-new-windows='strict'
-num-workspaces=4
+focus-new-windows='smart'
+num-workspaces=2
