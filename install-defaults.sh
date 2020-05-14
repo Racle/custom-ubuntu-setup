@@ -44,7 +44,9 @@ sudo apt-get install -y zsh \
                      flameshot \
                      silversearcher-ag \
                      powerline \
-                     tmux
+                     tmux \
+                     ranger \
+                     libxext-dev
 
 ##
 echo ""
@@ -124,6 +126,12 @@ echo ""
 echo "${bold}Install tmux plugin manager${normal}"
 echo ""
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+##
+echo ""
+echo "${bold}Install ueberzug (plugin for image preview in ranger)${normal}"
+echo ""
+sudo pip3 install ueberzug
 
 ##
 echo ""
