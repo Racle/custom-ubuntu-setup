@@ -52,7 +52,8 @@ sudo apt-get install -y zsh \
                      highlight \
                      w3m \
                      poppler-utils \
-                     mediainfo
+                     mediainfo \
+                     ripgrep
 
 
 ##
