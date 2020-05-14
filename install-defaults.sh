@@ -46,7 +46,14 @@ sudo apt-get install -y zsh \
                      powerline \
                      tmux \
                      ranger \
-                     libxext-dev
+                     libxext-dev \
+                     atool \
+                     caca-utils \
+                     highlight \
+                     w3m \
+                     poppler-utils \
+                     mediainfo
+
 
 ##
 echo ""
