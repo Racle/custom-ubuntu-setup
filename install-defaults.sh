@@ -143,6 +143,18 @@ sudo pip3 install ueberzug
 
 ##
 echo ""
+echo "${bold}Install ueberzug (plugin for image preview in ranger)${normal}"
+echo ""
+sudo add-apt-repository ppa:lazygit-team/release -y
+sudo apt install -y lazygit
+
+##
+echo ""
+echo "${bold}Set cursor repeat rate${normal}"
+echo ""
+xset r rate 190 30
+##
+echo ""
 echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
 echo ""
 echo "sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
