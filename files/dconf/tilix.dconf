@@ -42,6 +42,8 @@ session-synchronize-input='<Primary><Alt>Return'
 terminal-advanced-paste='<Primary><Shift><Alt>v'
 terminal-copy='<Primary><Shift>c'
 terminal-paste='<Primary><Shift>v'
+terminal-scroll-down='<Ctrl><Shift>Down'
+terminal-scroll-up='<Ctrl><Shift>Up'
 win-view-sidebar='F12'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
