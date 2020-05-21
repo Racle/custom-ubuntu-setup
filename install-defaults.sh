@@ -150,7 +150,7 @@ sudo apt install -y lazygit
 
 ##
 echo ""
-echo "${bold}Set cursor repeat rate${normal}"
+echo "${bold}Set cursor repeat rate (xset r rate 190 30)${normal}"
 echo ""
 xset r rate 190 30
 ##
