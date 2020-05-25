@@ -23,7 +23,7 @@ sudo apt-get install -y zsh \
                      gnupg-agent \
                      python3 \
                      python3-pip \
-                     vim \
+                     neovim \
                      python-dev \
                      build-essential \
                      cmake \
@@ -142,14 +142,14 @@ sudo pip3 install ueberzug
 
 ##
 echo ""
-echo "${bold}Install ueberzug (plugin for image preview in ranger)${normal}"
+echo "${bold}Install lazygit${normal}"
 echo ""
 sudo add-apt-repository ppa:lazygit-team/release -y
 sudo apt install -y lazygit
 
 ##
 echo ""
-echo "${bold}Set cursor repeat rate${normal}"
+echo "${bold}Set cursor repeat rate (xset r rate 190 30)${normal}"
 echo ""
 xset r rate 190 30
 ##
