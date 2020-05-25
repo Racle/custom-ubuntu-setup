@@ -23,7 +23,6 @@ sudo apt-get install -y zsh \
                      gnupg-agent \
                      python3 \
                      python3-pip \
-                     fonts-powerline \
                      vim \
                      python-dev \
                      build-essential \

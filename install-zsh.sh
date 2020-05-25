@@ -2,19 +2,25 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 ##
-sudo echo "${bold}Install zsh and powerline fonts${normal}"
+sudo echo "${bold}Install zsh and patched nerd fonts${normal}"
 echo ""
 sudo apt-get install -y zsh
 # just to be sure and getting latest fonts, git clone
 cd /tmp/
 # clone
-git clone https://github.com/powerline/fonts.git --depth=1
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth=1
 # install
-cd fonts
-./install.sh
+cd nerd-fonts
+./install.sh Hack
+./install.sh FiraCode
+./install.sh FiraMono
+./install.sh Ubuntu
+./install.sh UbuntuMono
+./install.sh JetBrainsMono
+./install.sh RobotoMono
 # clean-up a bit
 cd ..
-rm -rf fonts
+rm -rf nerd-fonts
 
 ##
 echo ""
