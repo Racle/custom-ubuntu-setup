@@ -142,6 +142,12 @@ sudo pip3 install ueberzug
 
 ##
 echo ""
+echo "${bold}Install ranger icons${normal}"
+echo ""
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+
+##
+echo ""
 echo "${bold}Install lazygit${normal}"
 echo ""
 sudo add-apt-repository ppa:lazygit-team/release -y
