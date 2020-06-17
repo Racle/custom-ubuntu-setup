@@ -54,3 +54,8 @@ name='Flameshot Delay'
 binding='<Alt>Print'
 command='flameshot screen -c -p Pictures/Screenshots'
 name='Flameshot Current Monitor'
+
+[custom-keybindings/custom9]
+binding='<Alt><Super>l'
+command='/home/vvi/scripts/lock-screen'
+name='lock-screen'
