@@ -155,9 +155,9 @@ sudo apt install -y lazygit
 
 ##
 echo ""
-echo "${bold}Set cursor repeat rate (xset r rate 190 30)${normal}"
+echo "${bold}Set cursor repeat rate (xset r rate 210 30) (add also to .profile)${normal}"
 echo ""
-xset r rate 190 30
+xset r rate 210 30
 ##
 echo ""
 echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
