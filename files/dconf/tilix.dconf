@@ -23,7 +23,7 @@ use-overlay-scrollbar=true
 use-tabs=true
 window-save-state=false
 window-state=87040
-window-style='normal'
+window-style='disable-csd-hide-toolbar'
 
 [keybindings]
 app-new-session='<Primary><Alt>t'

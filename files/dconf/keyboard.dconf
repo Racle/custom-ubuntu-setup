@@ -1,3 +1,5 @@
 [/]
-delay=uint32 190
+delay=uint32 210
+numlock-state=true
+repeat=true
 repeat-interval=uint32 30

@@ -52,7 +52,8 @@ sudo apt-get install -y zsh \
                      w3m \
                      poppler-utils \
                      mediainfo \
-                     ripgrep
+                     ripgrep \
+                     zathura
 
 
 ##
