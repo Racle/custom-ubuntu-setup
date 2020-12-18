@@ -47,13 +47,16 @@ terminal-scroll-up='<Ctrl><Shift>Up'
 win-view-sidebar='F12'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#262626262626'
 background-transparency-percent=5
 badge-text=''
 bold-is-bright=false
+cursor-colors-set=false
 default-size-columns=154
 default-size-rows=48
 dim-transparency-percent=12
 font='Hack Nerd Font Mono 10'
+foreground-color='#D3D3D7D7CFCF'
 login-shell=true
 notify-silence-enabled=false
 notify-silence-threshold=60
@@ -61,4 +64,5 @@ scroll-on-output=false
 show-scrollbar=true
 terminal-title='${title}'
 use-system-font=false
+use-theme-colors=false
 visible-name='Default'
