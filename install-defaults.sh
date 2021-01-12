@@ -53,7 +53,8 @@ sudo apt-get install -y zsh \
                      poppler-utils \
                      mediainfo \
                      ripgrep \
-                     zathura
+                     zathura \
+                     meld
 
 
 ##
@@ -125,7 +126,7 @@ sudo apt-get instal -y albert
 echo ""
 echo "${bold}Install gnome templates${normal}"
 echo ""
-cp ./files/Templates.tar.gz ~/Templates.tar.gz 
+cp ./files/Templates.tar.gz ~/Templates.tar.gz
 tar -xzvf ~/Templates.tar.gz
 rm ~/Templates.tar.gz
 
