@@ -54,7 +54,8 @@ sudo apt-get install -y zsh \
                      mediainfo \
                      ripgrep \
                      zathura \
-                     meld
+                     meld \
+                     proxychains
 
 
 ##
