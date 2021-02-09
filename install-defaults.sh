@@ -153,14 +153,22 @@ git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger
 echo ""
 echo "${bold}Install lazygit${normal}"
 echo ""
+sudo apt install -f
 sudo add-apt-repository ppa:lazygit-team/release -y
 sudo apt install -y lazygit
+
+##
+echo ""
+echo "${bold}Set max file watchers${normal}"
+echo ""
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl --system
 
 ##
 echo ""
 echo "${bold}Set cursor repeat rate (xset r rate 210 30) (add also to .profile)${normal}"
 echo ""
 xset r rate 210 30
+
 ##
 echo ""
 echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
