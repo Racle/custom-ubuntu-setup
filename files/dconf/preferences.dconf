@@ -1,6 +1,6 @@
 [/]
 action-double-click-titlebar='toggle-maximize'
 action-middle-click-titlebar='minimize'
-button-layout=':maximize,close'
+button-layout=':minimize,maximize,close'
 focus-new-windows='smart'
 num-workspaces=4
