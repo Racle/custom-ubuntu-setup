@@ -55,6 +55,7 @@ sudo apt-get install -y zsh \
                      ripgrep \
                      zathura \
                      meld \
+                     expect \
                      proxychains
 
 
