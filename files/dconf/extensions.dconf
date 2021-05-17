@@ -1,10 +1,12 @@
 [auto-move-windows]
-application-list=['teams.desktop:1', 'chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default.desktop:1', 'jetbrains-phpstorm.desktop:2']
+application-list=['firefoxDeveloperEdition.desktop:2', 'io.dbeaver.DBeaverCommunity.desktop:3', 'teams_teams.desktop:1']
 
 [dash-to-dock]
 apply-custom-theme=true
 click-action='previews'
+dock-fixed=false
 dock-position='BOTTOM'
+extend-height=false
 hot-keys=false
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
 multi-monitor=true
@@ -36,7 +38,7 @@ y-res=false
 active-hint=true
 focus-monitor-left=@as []
 focus-monitor-right=@as []
-gap-inner=uint32 0
+gap-inner=uint32 1
 gap-outer=uint32 1
 show-title=true
 snap-to-grid=false
@@ -49,7 +51,7 @@ tile-resize-up=['<Shift>Down']
 
 [simplenetspeed]
 fontmode=3
-mode=3
+mode=2
 
 [tilix-dropdown]
 key=['F10']
