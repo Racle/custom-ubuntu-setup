@@ -7,9 +7,9 @@ echo ""
 sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list
 
 echo ""
-echo "${bold}Install nodejs 12 repo${normal}"
+echo "${bold}Install nodejs 14 repo${normal}"
 echo ""
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
 ##
 echo ""
