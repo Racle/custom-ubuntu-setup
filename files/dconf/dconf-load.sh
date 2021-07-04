@@ -16,5 +16,6 @@ dconf load /org/gnome/shell/extensions/ < extensions.dconf
 dconf load /org/gnome/desktop/wm/preferences/ < preferences.dconf
 dconf load /org/gnome/desktop/peripherals/keyboard/ < keyboard.dconf
 dconf load /org/gnome/meld/ < meld.dconf
+dconf write /org/gnome/shell/extensions/pop-shell/activate-launcher "['<Super>Space']"
 
 sed -i "s/ssh .*$/ssh SSH_URL'/" custom-keybindings.dconf

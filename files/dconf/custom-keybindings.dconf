@@ -7,6 +7,7 @@ home=@as []
 screensaver=['<Primary><Shift><Alt>l']
 screenshot=@as []
 screenshot-clip=@as []
+search=@as []
 window-screenshot=@as []
 window-screenshot-clip=@as []
 
@@ -21,7 +22,7 @@ command=' dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpr
 name='Audio play/pause'
 
 [custom-keybindings/custom2]
-binding='<Super>space'
+binding='<Primary><Shift>space'
 command='albert toggle'
 name='Albert toggle'
 
@@ -54,8 +55,3 @@ name='Flameshot Delay'
 binding='<Alt>Print'
 command='flameshot screen -c -p Pictures/Screenshots'
 name='Flameshot Current Monitor'
-
-[custom-keybindings/custom9]
-binding='<Alt><Super>l'
-command='/home/vvi/scripts/lock-screen'
-name='lock-screen'

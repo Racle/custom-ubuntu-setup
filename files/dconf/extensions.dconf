@@ -9,6 +9,7 @@ dock-position='BOTTOM'
 extend-height=false
 hot-keys=false
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
+manualhide=false
 multi-monitor=true
 preferred-monitor=0
 require-pressure-to-show=false
@@ -33,6 +34,11 @@ x-pos=99.0
 x-res=false
 y-pos=2.0
 y-res=false
+
+[pop-cosmic]
+clock-alignment='CENTER'
+show-applications-button=false
+show-workspaces-button=false
 
 [pop-shell]
 active-hint=true
