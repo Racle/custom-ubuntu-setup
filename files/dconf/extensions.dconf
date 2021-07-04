@@ -41,6 +41,7 @@ show-applications-button=false
 show-workspaces-button=false
 
 [pop-shell]
+activate-launcher=['<Super>Space']
 active-hint=true
 focus-monitor-left=@as []
 focus-monitor-right=@as []
@@ -57,7 +58,7 @@ tile-resize-up=['<Shift>Down']
 
 [simplenetspeed]
 fontmode=3
-mode=2
+mode=3
 
 [tilix-dropdown]
 key=['F10']
