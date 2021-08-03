@@ -11,6 +11,11 @@ echo "${bold}Install nodejs 14 repo${normal}"
 echo ""
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
+echo ""
+echo "${bold}Install neovim repo${normal}"
+echo ""
+sudo add-apt-repository ppa:neovim-ppa/unstable
+
 ##
 echo ""
 sudo echo "${bold}Install defaults${normal}"
