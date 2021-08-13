@@ -35,7 +35,6 @@ sudo apt-get install -y zsh \
                      xsel \
                      rlwrap \
                      gnome-tweak-tool \
-                     tilix \
                      code \
                      shellcheck \
                      redshift \
@@ -72,9 +71,9 @@ sudo snap install --classic go
 
 ##
 echo ""
-echo "${bold}Setup tilix as default and get default config${normal}"
+echo "${bold}Install kitty and set as default terminal${normal}"
 echo ""
-sudo update-alternatives --config x-terminal-emulator
+sudo sh ./files/setup/kitty.sh
 
 echo ""
 echo "${bold}Install cheat${normal}"
