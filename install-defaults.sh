@@ -4,7 +4,9 @@ normal=$(tput sgr0)
 echo ""
 echo "${bold}Set ubuntu mirror to fi${normal}"
 echo ""
-sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list
+# Deprecated
+# sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list
+sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/system.sources
 
 echo ""
 echo "${bold}Install nodejs 14 repo${normal}"
