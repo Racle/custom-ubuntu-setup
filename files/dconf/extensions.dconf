@@ -47,6 +47,7 @@ focus-monitor-left=@as []
 focus-monitor-right=@as []
 gap-inner=uint32 1
 gap-outer=uint32 1
+search=['<Super>Space']
 show-title=true
 snap-to-grid=false
 tile-by-default=true
@@ -55,10 +56,14 @@ tile-resize-down=['<Shift>Up']
 tile-resize-left=['<Shift>Right']
 tile-resize-right=['<Shift>Left']
 tile-resize-up=['<Shift>Down']
+toggle-tiling=['<Primary><Shift><Super>y']
 
 [simplenetspeed]
 fontmode=3
 mode=3
+
+[sound-output-device-chooser]
+ports-settings='{"version":2,"ports":[]}'
 
 [tilix-dropdown]
 key=['F10']
