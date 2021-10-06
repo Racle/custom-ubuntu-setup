@@ -166,6 +166,16 @@ sudo apt install -y lazygit
 
 ##
 echo ""
+echo "${bold}Install flatpak packages${normal}"
+echo ""
+flatpak install flathub dev.rdm.RDM
+flatpak install flathub io.dbeaver.DBeaverCommunity
+flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.getpostman.Postman
+
+
+##
+echo ""
 echo "${bold}Set max file watchers${normal}"
 echo ""
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl --system
@@ -181,3 +191,4 @@ echo ""
 echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
 echo ""
 echo "sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
+
