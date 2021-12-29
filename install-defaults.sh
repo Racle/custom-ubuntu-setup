@@ -120,15 +120,15 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-
 #newgrp docker
 
 ##
-echo ""
-echo "${bold}Install albert${normal}"
-echo ""
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
-wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
-sudo apt-key add - < Release.key
-rm Release.key
-sudo apt-get update
-sudo apt-get instal -y albert
+# echo ""
+# echo "${bold}Install albert${normal}"
+# echo ""
+# sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
+# wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
+# sudo apt-key add - < Release.key
+# rm Release.key
+# sudo apt-get update
+# sudo apt-get instal -y albert
 
 ##
 echo ""
@@ -163,6 +163,8 @@ echo ""
 sudo apt install -f
 sudo add-apt-repository ppa:lazygit-team/release -y
 sudo apt install -y lazygit
+echo "${bold}Change impish to hirsute in lazygit source${normal}"
+sudo sed -i 's/impish/hirsute/g' /etc/apt/sources.list.d/lazygit-team-ubuntu-release-impish.list
 
 ##
 echo ""
