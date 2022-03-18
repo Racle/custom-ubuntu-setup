@@ -62,7 +62,8 @@ sudo apt-get install -y zsh \
                      zathura \
                      meld \
                      expect \
-                     proxychains
+                     proxychains \
+                     redis-tools
 
 
 ##
