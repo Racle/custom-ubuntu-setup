@@ -14,3 +14,6 @@ sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x2
 # Set kitty as default terminal
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator `which kitty` 50
 sudo update-alternatives --config x-terminal-emulator
+
+# install kitty-terminfo package
+sudo apt install kitty-terminfo

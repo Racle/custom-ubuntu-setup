@@ -159,13 +159,23 @@ git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger
 
 ##
 echo ""
-echo "${bold}Install lazygit${normal}"
+echo "${bold}Install lazygit with go${normal}"
 echo ""
-sudo apt install -f
-sudo add-apt-repository ppa:lazygit-team/release -y
-sudo apt install -y lazygit
-echo "${bold}Change impish to hirsute in lazygit source${normal}"
-sudo sed -i 's/impish/hirsute/g' /etc/apt/sources.list.d/lazygit-team-ubuntu-release-impish.list
+go install github.com/jesseduffield/lazygit@latest
+# old way
+# sudo apt install -f
+# sudo add-apt-repository ppa:lazygit-team/release -y
+# sudo apt install -y lazygit
+# echo "${bold}Change impish to hirsute in lazygit source${normal}"
+# sudo sed -i 's/impish/hirsute/g' /etc/apt/sources.list.d/lazygit-team-ubuntu-release-impish.list
+
+##
+echo ""
+echo "${bold}Install delta https://github.com/dandavison/delta/releases${normal}"
+echo ""
+wget https://github.com/dandavison/delta/releases/download/0.12.1/git-delta_0.12.1_amd64.deb
+sudo dpkg -i git-delta_0.12.1_amd64.deb
+rm git-delta*.deb
 
 ##
 echo ""
