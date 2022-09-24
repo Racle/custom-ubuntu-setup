@@ -107,15 +107,10 @@ echo ""
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   bionic \
-   stable"
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+   $(lsb_release -cs) stable"
+sudo apt update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-##
-echo ""
-echo "${bold}Check latest version at https://docs.docker.com/compose/install/${normal}"
-echo ""
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 #sudo chmod +x /usr/local/bin/docker-compose
 #sudo usermod -aG docker $USER
 #newgrp docker
@@ -203,5 +198,5 @@ xset r rate 210 30
 echo ""
 echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
 echo ""
-echo "sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
+echo "sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
 
