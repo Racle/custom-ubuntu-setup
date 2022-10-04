@@ -18,6 +18,11 @@ echo "${bold}Install neovim repo${normal}"
 echo ""
 sudo add-apt-repository ppa:neovim-ppa/unstable
 
+echo ""
+echo "${bold}Enable gnome tweak tool repo${normal}"
+echo ""
+sudo add-apt-repository universe
+
 ##
 echo ""
 sudo echo "${bold}Install defaults${normal}"
@@ -31,12 +36,10 @@ sudo apt-get install -y zsh \
                      python3 \
                      python3-pip \
                      neovim \
-                     python-dev \
                      build-essential \
                      cmake \
                      xsel \
                      rlwrap \
-                     gnome-tweak-tool \
                      code \
                      shellcheck \
                      redshift \
@@ -63,7 +66,8 @@ sudo apt-get install -y zsh \
                      meld \
                      expect \
                      proxychains \
-                     redis-tools
+                     redis-tools \
+                     gnome-tweaks
 
 
 ##
@@ -91,14 +95,6 @@ echo ""
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O ~/chrome.deb
 sudo dpkg -i ~/chrome.deb
 rm ~/chrome.deb
-
-##
-echo ""
-echo "${bold}Install discord${normal}"
-echo ""
-wget "https://discordapp.com/api/download?platform=linux&format=deb" -O ~/discord.deb
-sudo dpkg -i ~/discord.deb
-rm ~/discord.deb
 
 ##
 echo ""
@@ -178,9 +174,11 @@ echo "${bold}Install flatpak packages${normal}"
 echo ""
 flatpak install flathub dev.rdm.RDM
 flatpak install flathub io.dbeaver.DBeaverCommunity
-flatpak install flathub com.discordapp.Discord
 flatpak install flathub com.getpostman.Postman
-
+flatpak install flathub com.discordapp.Discord
+flatpak install com.slack.Slack
+flatpak install com.spotify.Client
+flatpak install org.signal.Signal
 
 ##
 echo ""
@@ -193,6 +191,12 @@ echo ""
 echo "${bold}Set cursor repeat rate (xset r rate 210 30) (add also to .profile)${normal}"
 echo ""
 xset r rate 210 30
+
+##
+echo ""
+echo "${bold}Set neovim as default editor${normal}"
+echo ""
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 100
 
 ##
 echo ""
