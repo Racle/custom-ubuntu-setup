@@ -11,7 +11,7 @@ sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/system.sources
 echo ""
 echo "${bold}Install nodejs 14 repo${normal}"
 echo ""
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 echo ""
 echo "${bold}Install neovim repo${normal}"
@@ -75,6 +75,12 @@ echo ""
 echo "${bold}Install go${normal}"
 echo ""
 sudo snap install --classic go
+
+##
+echo ""
+echo "${bold}Install rust${normal}"
+echo ""
+curl https://sh.rustup.rs -sSf | sh
 
 ##
 echo ""
