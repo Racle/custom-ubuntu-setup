@@ -1,15 +1,21 @@
 [/]
 area-screenshot=@as []
 area-screenshot-clip=@as []
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 email=@as []
 home=@as []
-screensaver=['<Primary><Shift><Alt>l']
+play=@as []
+screensaver=['<Primary><Alt>l']
 screenshot=@as []
 screenshot-clip=@as []
 search=@as []
 window-screenshot=@as []
 window-screenshot-clip=@as []
+
+[custom-keybindings/PopLaunch1]
+binding='Launch1'
+command='gnome-control-center wifi'
+name='WiFi'
 
 [custom-keybindings/custom0]
 binding='<Super>e'
@@ -17,9 +23,9 @@ command='nautilus'
 name='Open file explorer'
 
 [custom-keybindings/custom1]
-binding='<Super>Tab'
-command=' dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
-name='Audio play/pause'
+binding='<Primary><Alt>Tab'
+command='pkexec bash -c "systemctl restart logid"'
+name='restart logiops'
 
 [custom-keybindings/custom2]
 binding='<Primary><Shift>space'
@@ -38,20 +44,20 @@ name='Copyq toggle'
 
 [custom-keybindings/custom5]
 binding='Print'
-command='flameshot gui -p Pictures/Screenshots'
+command='flameshot gui'
 name='Flameshot'
 
 [custom-keybindings/custom6]
 binding='<Shift>Print'
-command='flameshot gui -p Pictures/Screenshots'
+command='flameshot gui'
 name='Flameshot Alternative'
 
 [custom-keybindings/custom7]
 binding='<Primary>Print'
-command='flameshot gui -p Pictures/Screenshots -d 3000'
+command='flameshot gui -d 3000'
 name='Flameshot Delay'
 
 [custom-keybindings/custom8]
 binding='<Alt>Print'
-command='flameshot screen -c -p Pictures/Screenshots'
+command='flameshot screen -c'
 name='Flameshot Current Monitor'

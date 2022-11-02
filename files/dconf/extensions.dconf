@@ -1,5 +1,8 @@
 [auto-move-windows]
-application-list=['firefoxDeveloperEdition.desktop:2', 'io.dbeaver.DBeaverCommunity.desktop:3', 'teams_teams.desktop:1']
+application-list=['io.dbeaver.DBeaverCommunity.desktop:2', 'org.remmina.Remmina.desktop:3']
+
+[babar]
+display-activities=false
 
 [dash-to-dock]
 apply-custom-theme=true
@@ -37,18 +40,22 @@ y-res=false
 
 [pop-cosmic]
 clock-alignment='CENTER'
+overlay-key-action='LAUNCHER'
 show-applications-button=false
 show-workspaces-button=false
 
 [pop-shell]
 activate-launcher=['<Super>Space']
 active-hint=true
+active-hint-border-radius=uint32 5
 focus-monitor-left=@as []
 focus-monitor-right=@as []
+fullscreen-launcher=false
 gap-inner=uint32 1
 gap-outer=uint32 1
 search=['<Super>Space']
 show-title=true
+smart-gaps=true
 snap-to-grid=false
 tile-by-default=true
 tile-orientation=['<Super>o']
@@ -60,10 +67,10 @@ toggle-tiling=['<Primary><Shift><Super>y']
 
 [simplenetspeed]
 fontmode=3
-mode=3
+mode=2
 
 [sound-output-device-chooser]
-ports-settings='{"version":2,"ports":[]}'
+ports-settings='{"version":3,"ports":[]}'
 
 [tilix-dropdown]
 key=['F10']

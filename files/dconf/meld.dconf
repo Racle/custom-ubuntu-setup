@@ -1,5 +1,6 @@
 [/]
 custom-font='Hack Nerd Font Mono 10'
+folder-status-filters=['normal', 'normal', 'new', 'modified']
 highlight-current-line=false
 highlight-syntax=true
 indent-width=2
@@ -7,7 +8,7 @@ insert-spaces-instead-of-tabs=true
 show-line-numbers=true
 style-scheme='pop-dark'
 use-system-font=false
-vc-console-pane-position=922
+vc-console-pane-position=1138
 vc-console-visible=true
 vc-left-is-local=true
 vc-merge-file-order='local-merge-remote'
@@ -16,5 +17,5 @@ wrap-mode='none'
 
 [window-state]
 height=1146
-is-maximized=false
-width=1414
+is-maximized=true
+width=3449
