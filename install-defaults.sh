@@ -179,12 +179,17 @@ echo ""
 echo "${bold}Install flatpak packages${normal}"
 echo ""
 flatpak install flathub dev.rdm.RDM
-flatpak install flathub io.dbeaver.DBeaverCommunity
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub com.discordapp.Discord
 flatpak install com.slack.Slack
 flatpak install com.spotify.Client
 flatpak install org.signal.Signal
+#dbeaver + extras
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub io.dbeaver.DBeaverCommunity
+sudo flatpak install io.dbeaver.DBeaverCommunity.Client.pgsql
+sudo flatpak install io.dbeaver.DBeaverCommunity.Client.mariadb
+flatpak install flathub com.github.tchx84.Flatseal
 
 ##
 echo ""
