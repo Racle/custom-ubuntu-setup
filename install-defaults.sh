@@ -90,6 +90,20 @@ curl https://sh.rustup.rs -sSf | sh
 
 ##
 echo ""
+echo "${bold}Install dotnet${normal}"
+echo ""
+(
+  cd /tmp
+  wget https://dot.net/v1/dotnet-install.sh
+  sudo chmod +x dotnet-install.sh
+  ./dotnet-install.sh --version latest
+  # if omnisharp languageserver doesn't work, try this
+  #./dotnet-install.sh  --channel 7.0
+  rm /tmp/dotnet-install.sh
+)
+
+##
+echo ""
 echo "${bold}Install kitty and set as default terminal${normal}"
 echo ""
 sudo sh ./files/setup/kitty.sh
