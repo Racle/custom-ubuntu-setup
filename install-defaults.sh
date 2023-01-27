@@ -9,7 +9,7 @@ echo ""
 sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/system.sources
 
 echo ""
-echo "${bold}Install nodejs 14 repo${normal}"
+echo "${bold}Install nodejs 16 repo${normal}"
 echo ""
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
@@ -28,53 +28,59 @@ echo ""
 sudo echo "${bold}Install defaults${normal}"
 echo ""
 sudo apt-get install -y zsh \
-                     git \
-                     apt-transport-https \
-                     ca-certificates \
-                     curl \
-                     gnupg-agent \
-                     python3 \
-                     python3-pip \
-                     neovim \
-                     build-essential \
-                     cmake \
-                     xsel \
-                     rlwrap \
-                     code \
-                     shellcheck \
-                     redshift \
-                     snapd \
-                     stow \
-                     nodejs \
-                     chrome-gnome-shell \
-                     xclip \
-                     copyq \
-                     flameshot \
-                     silversearcher-ag \
-                     powerline \
-                     tmux \
-                     ranger \
-                     libxext-dev \
-                     atool \
-                     caca-utils \
-                     highlight \
-                     w3m \
-                     poppler-utils \
-                     mediainfo \
-                     ripgrep \
-                     zathura \
-                     meld \
-                     expect \
-                     proxychains \
-                     redis-tools \
-                     gnome-tweaks
-
+  git \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg-agent \
+  python3 \
+  python3-pip \
+  neovim \
+  build-essential \
+  cmake \
+  xsel \
+  rlwrap \
+  code \
+  shellcheck \
+  redshift \
+  snapd \
+  stow \
+  nodejs \
+  chrome-gnome-shell \
+  xclip \
+  copyq \
+  flameshot \
+  silversearcher-ag \
+  powerline \
+  tmux \
+  ranger \
+  libxext-dev \
+  atool \
+  caca-utils \
+  highlight \
+  w3m \
+  poppler-utils \
+  mediainfo \
+  ripgrep \
+  zathura \
+  meld \
+  expect \
+  proxychains \
+  redis-tools \
+  gnome-tweaks
 
 ##
 echo ""
 echo "${bold}Install go${normal}"
 echo ""
-sudo snap install --classic go
+(
+  cd /tmp
+  rm -rf go*.tar.gz
+  wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go*.tar.gz
+  rm -rf go*.tar.gz
+)
+# sudo snap install --classic go
 
 ##
 echo ""
@@ -108,7 +114,7 @@ echo "${bold}Install docker + docker-compose${normal}"
 echo ""
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
 sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) stable"
 sudo apt update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
@@ -214,4 +220,3 @@ echo ""
 echo "${bold}(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker${normal}"
 echo ""
 echo "sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
-
