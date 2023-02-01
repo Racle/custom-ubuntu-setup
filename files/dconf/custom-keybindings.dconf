@@ -1,7 +1,7 @@
 [/]
 area-screenshot=@as []
 area-screenshot-clip=@as []
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/']
 email=@as []
 home=@as []
 play=@as []
@@ -26,6 +26,11 @@ name='Open file explorer'
 binding='<Primary><Alt>Tab'
 command='pkexec bash -c "systemctl restart logid"'
 name='restart logiops'
+
+[custom-keybindings/custom10]
+binding='<Primary><Alt>Print'
+command='bash -c "flameshot gui --raw | tesseract -l fin stdin stdout | xclip -in -selection clipboard"'
+name='Flameshot OCR (fin)'
 
 [custom-keybindings/custom2]
 binding='<Primary><Shift>space'
@@ -61,3 +66,8 @@ name='Flameshot Delay'
 binding='<Alt>Print'
 command='flameshot screen -c'
 name='Flameshot Current Monitor'
+
+[custom-keybindings/custom9]
+binding='<Primary><Shift>Print'
+command='bash -c "flameshot gui --raw | tesseract stdin stdout | xclip -in -selection clipboard"'
+name='Flameshot OCR'

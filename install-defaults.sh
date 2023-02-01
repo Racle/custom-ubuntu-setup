@@ -196,6 +196,17 @@ rm git-delta*.deb
 
 ##
 echo ""
+echo "${bold}Install tesseract${normal}"
+echo ""
+{
+  sudo snap install --channel=edge tesseract
+  mkdir -p ~/snap/tesseract/common/
+  wget https://github.com/tesseract-ocr/tessdata/raw/4.00/eng.traineddata -O ~/snap/tesseract/common/eng.traineddata
+  wget https://github.com/tesseract-ocr/tessdata/raw/4.00/fin.traineddata -O ~/snap/tesseract/common/fin.traineddata
+}
+
+##
+echo ""
 echo "${bold}Install flatpak packages${normal}"
 echo ""
 flatpak install flathub dev.rdm.RDM
