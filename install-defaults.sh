@@ -76,7 +76,7 @@ echo ""
 (
   cd /tmp
   rm -rf go*.tar.gz
-  wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz
+  wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go*.tar.gz
   rm -rf go*.tar.gz
 )
@@ -126,12 +126,16 @@ rm ~/chrome.deb
 echo ""
 echo "${bold}Install docker + docker-compose${normal}"
 echo ""
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
-sudo add-apt-repository \
-  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) stable"
-sudo apt update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
+  sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #sudo chmod +x /usr/local/bin/docker-compose
 #sudo usermod -aG docker $USER
