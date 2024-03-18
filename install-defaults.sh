@@ -74,9 +74,11 @@ echo ""
 echo "${bold}Install go${normal}"
 echo ""
 (
-  cd /tmp
+  cd /tmp || exit
   rm -rf go*.tar.gz
-  wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
+  LATEST_GO_VERSION="$(curl --silent "https://go.dev/VERSION?m=text" | head -n 1)"
+  LATEST_GO_DOWNLOAD_URL="https://go.dev/dl/${LATEST_GO_VERSION}.linux-amd64.tar.gz"
+  wget "$LATEST_GO_DOWNLOAD_URL"
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go*.tar.gz
   rm -rf go*.tar.gz
 )
@@ -97,8 +99,6 @@ echo ""
   wget https://dot.net/v1/dotnet-install.sh
   sudo chmod +x dotnet-install.sh
   ./dotnet-install.sh --version latest
-  # if omnisharp languageserver doesn't work, try this
-  #./dotnet-install.sh  --channel 7.0
   rm /tmp/dotnet-install.sh
 )
 
@@ -107,12 +107,6 @@ echo ""
 echo "${bold}Install kitty and set as default terminal${normal}"
 echo ""
 sudo sh ./files/setup/kitty.sh
-
-echo ""
-echo "${bold}Install cheat${normal}"
-echo ""
-curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cheat
-sudo chmod +x /usr/local/bin/cheat
 
 ##
 echo ""
@@ -200,13 +194,16 @@ rm git-delta*.deb
 
 ##
 echo ""
-echo "${bold}Install tesseract${normal}"
+echo "${bold}Install terraform${normal}"
 echo ""
 {
-  sudo snap install --channel=edge tesseract
-  mkdir -p ~/snap/tesseract/common/
-  wget https://github.com/tesseract-ocr/tessdata/raw/4.00/eng.traineddata -O ~/snap/tesseract/common/eng.traineddata
-  wget https://github.com/tesseract-ocr/tessdata/raw/4.00/fin.traineddata -O ~/snap/tesseract/common/fin.traineddata
+  wget -O- https://apt.releases.hashicorp.com/gpg |
+    gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg >/dev/null
+
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  sudo apt update
+  sudo apt-get install terraform -y
 }
 
 ##

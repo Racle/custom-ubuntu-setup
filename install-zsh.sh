@@ -35,6 +35,7 @@ git clone https://github.com/junegunn/fzf.git ~/.oh-my-zsh/custom/plugins/fzf
 git clone https://github.com/Treri/fzf-zsh.git ~/.oh-my-zsh/custom/plugins/fzf-zsh
 git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
+git clone https://github.com/macunha1/zsh-terraform ~/.oh-my-zsh/custom/plugins/terraform
 
 ##
 echo ""
