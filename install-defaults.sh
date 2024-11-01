@@ -208,6 +208,15 @@ https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/
 
 ##
 echo ""
+echo "${bold}Install kubectl and enable zsh completions${normal}"
+echo ""
+sudo snap install kubectl --classic
+sudo snap install kubectx --classic
+mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/
+kubectl completion zsh >~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh
+
+##
+echo ""
 echo "${bold}Install flatpak packages${normal}"
 echo ""
 flatpak install flathub dev.rdm.RDM
