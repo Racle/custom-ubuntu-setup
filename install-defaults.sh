@@ -9,9 +9,9 @@ echo ""
 sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/system.sources
 
 echo ""
-echo "${bold}Install nodejs 16 repo${normal}"
+echo "${bold}Install nodejs 20 repo${normal}"
 echo ""
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 echo ""
 echo "${bold}Install neovim repo${normal}"
