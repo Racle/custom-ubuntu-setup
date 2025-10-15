@@ -11,7 +11,7 @@ sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/system.sources
 echo ""
 echo "${bold}Install nodejs 20 repo${normal}"
 echo ""
-curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 
 echo ""
 echo "${bold}Install neovim repo${normal}"
@@ -101,6 +101,8 @@ echo ""
   ./dotnet-install.sh --version latest
   rm /tmp/dotnet-install.sh
 )
+# if you want to install specific version or channel, use for example
+# ./dotnet-install.sh --channel 9.0
 
 ##
 echo ""
