@@ -67,7 +67,8 @@ sudo apt-get install -y zsh \
   expect \
   proxychains \
   redis-tools \
-  gnome-tweaks
+  gnome-tweaks \
+  pipx
 
 ##
 echo ""
@@ -86,7 +87,7 @@ echo ""
 
 ##
 echo ""
-echo "${bold}Install rust${normal}"
+echo "${bold}Install rust & cargo${normal}"
 echo ""
 curl https://sh.rustup.rs -sSf | sh
 
@@ -193,6 +194,11 @@ echo ""
 wget https://github.com/dandavison/delta/releases/download/0.12.1/git-delta_0.12.1_amd64.deb
 sudo dpkg -i git-delta_0.12.1_amd64.deb
 rm git-delta*.deb
+
+echo ""
+echo "${bold}Install zallij and aichat${normal}"
+echo ""
+cargo install zellij aichat
 
 ##
 echo ""
