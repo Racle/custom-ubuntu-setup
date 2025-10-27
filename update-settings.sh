@@ -18,6 +18,6 @@ echo ""
 echo "${bold}Install custom dotfiles${normal}"
 echo ""
 git clone https://github.com/Racle/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+cd ~/.dotfiles || exit 1
 make stow
 make link-root

@@ -1,3 +1,6 @@
+#!/bin/sh
+set -eu
+
 bold=$(tput bold)
 normal=$(tput sgr0)
 
@@ -9,23 +12,30 @@ echo ""
 sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/system.sources
 
 echo ""
-echo "${bold}Install nodejs 20 repo${normal}"
+echo "${bold}Install nodejs 22 repo${normal}"
 echo ""
 curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 
 echo ""
 echo "${bold}Install neovim repo${normal}"
 echo ""
-sudo add-apt-repository ppa:neovim-ppa/unstable
+# This script updates Neovim to the latest nightly AppImage version and extracts it.
+# It automatically fetches the latest AppImage URL from the Neovim GitHub releases,
+# downloads it, makes it executable, and moves it to /usr/bin/nvim.
+# If the URL cannot be determined automatically, it prompts the user to provide it manually.
+(
+  sudo sh ./files/setup/nvim.sh
+)
 
 echo ""
 echo "${bold}Enable gnome tweak tool repo${normal}"
 echo ""
-sudo add-apt-repository universe
+sudo add-apt-repository universe -y
 
 ##
 echo ""
-sudo echo "${bold}Install defaults${normal}"
+echo "${bold}Install defaults${normal}"
+
 echo ""
 sudo apt-get install -y zsh \
   git \
@@ -75,13 +85,7 @@ echo ""
 echo "${bold}Install go${normal}"
 echo ""
 (
-  cd /tmp || exit
-  rm -rf go*.tar.gz
-  LATEST_GO_VERSION="$(curl --silent "https://go.dev/VERSION?m=text" | head -n 1)"
-  LATEST_GO_DOWNLOAD_URL="https://go.dev/dl/${LATEST_GO_VERSION}.linux-amd64.tar.gz"
-  wget "$LATEST_GO_DOWNLOAD_URL"
-  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go*.tar.gz
-  rm -rf go*.tar.gz
+  sudo sh ./files/setup/go.sh
 )
 # sudo snap install --classic go
 
@@ -89,14 +93,14 @@ echo ""
 echo ""
 echo "${bold}Install rust & cargo${normal}"
 echo ""
-curl https://sh.rustup.rs -sSf | sh
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 ##
 echo ""
 echo "${bold}Install dotnet${normal}"
 echo ""
 (
-  cd /tmp
+  cd /tmp || exit
   wget https://dot.net/v1/dotnet-install.sh
   sudo chmod +x dotnet-install.sh
   ./dotnet-install.sh --version latest
@@ -109,7 +113,9 @@ echo ""
 echo ""
 echo "${bold}Install kitty and set as default terminal${normal}"
 echo ""
-sudo sh ./files/setup/kitty.sh
+(
+  sudo sh ./files/setup/kitty.sh
+)
 
 ##
 echo ""
@@ -125,11 +131,11 @@ echo "${bold}Install docker + docker-compose${normal}"
 echo ""
 sudo apt-get install ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${VERSION_CODENAME:-$VERSION_CODENAME}") stable" |
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -153,15 +159,24 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 echo ""
 echo "${bold}Install gnome templates${normal}"
 echo ""
-cp ./files/Templates.tar.gz ~/Templates.tar.gz
-tar -xzvf ~/Templates.tar.gz
-rm ~/Templates.tar.gz
+if [ ! -d "$HOME/Templates" ]; then
+  cp ./files/Templates.tar.gz "$HOME/Templates.tar.gz"
+  tar -xzvf "$HOME/Templates.tar.gz" -C "$HOME"
+  rm "$HOME/Templates.tar.gz"
+else
+  echo "Templates directory already exists, skipping extraction."
+fi
 
 ##
 echo ""
 echo "${bold}Install tmux plugin manager${normal}"
 echo ""
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  # Install tmux plugin manager if not already present
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+else
+  echo "tmux plugin manager already installed, skipping."
+fi
 
 ##
 echo ""
@@ -173,7 +188,12 @@ sudo pip3 install ueberzug
 echo ""
 echo "${bold}Install ranger icons${normal}"
 echo ""
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+if [ ! -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
+  # Install ranger_devicons plugin for ranger if not already present
+  git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
+else
+  echo "ranger_devicons already installed, skipping."
+fi
 
 ##
 echo ""
@@ -216,41 +236,37 @@ https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/
 
 ##
 echo ""
-echo "${bold}Install kubectl and enable zsh completions${normal}"
-echo ""
-sudo snap install kubectl --classic
-sudo snap install kubectx --classic
-mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/
-kubectl completion zsh >~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh
-
-##
-echo ""
 echo "${bold}Install flatpak packages${normal}"
 echo ""
-flatpak install flathub dev.rdm.RDM
-flatpak install flathub com.getpostman.Postman
-flatpak install flathub com.discordapp.Discord
-flatpak install com.slack.Slack
-flatpak install com.spotify.Client
-flatpak install org.signal.Signal
+flatpak --user install flathub com.redis.RedisInsight
+flatpak --user install flathub com.getpostman.Postman
+flatpak --user install flathub com.discordapp.Discord
+flatpak --user install com.slack.Slack
+flatpak --user install com.spotify.Client
+flatpak --user install org.signal.Signal
 #dbeaver + extras
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.dbeaver.DBeaverCommunity
-sudo flatpak install io.dbeaver.DBeaverCommunity.Client.pgsql
-sudo flatpak install io.dbeaver.DBeaverCommunity.Client.mariadb
-flatpak install flathub com.github.tchx84.Flatseal
+flatpak --user install flathub io.dbeaver.DBeaverCommunity
+flatpak --user install io.dbeaver.DBeaverCommunity.Client.pgsql
+flatpak --user install io.dbeaver.DBeaverCommunity.Client.mariadb
+flatpak --user install flathub com.github.tchx84.Flatseal
 
 ##
 echo ""
 echo "${bold}Set max file watchers${normal}"
 echo ""
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl --system
+if ! grep -q 'fs.inotify.max_user_watches=524288' /etc/sysctl.conf; then
+  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+  sudo sysctl --system
+else
+  echo "fs.inotify.max_user_watches already set."
+fi
 
 ##
 echo ""
 echo "${bold}Set cursor repeat rate (xset r rate 210 30) (add also to .profile)${normal}"
 echo ""
-xset r rate 210 30
+xset r rate 210 30 # Consider adding to ~/.profile for persistence
 
 ##
 echo ""
