@@ -117,11 +117,15 @@ echo ""
 print_title "Install dotnet"
 echo ""
 (
-  cd /tmp || exit
-  wget https://dot.net/v1/dotnet-install.sh
-  sudo chmod +x dotnet-install.sh
-  ./dotnet-install.sh --version latest
-  rm /tmp/dotnet-install.sh
+  if ! command -v dotnet >/dev/null 2>&1; then
+    cd /tmp || exit
+    wget https://dot.net/v1/dotnet-install.sh
+    sudo chmod +x dotnet-install.sh
+    ./dotnet-install.sh --version latest
+    rm /tmp/dotnet-install.sh
+  else
+    echo "dotnet already installed, skipping."
+  fi
 )
 
 ##
