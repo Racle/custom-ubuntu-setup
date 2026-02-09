@@ -84,7 +84,7 @@ sudo apt-get install -y zsh \
   jq \
   imagemagick \
   fd-find \
-  zoxide
+  gnome-terminal
 
 ##
 print_title "Install go"
@@ -256,3 +256,28 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 10
 print_title "(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker"
 echo ""
 echo "sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
+
+##
+print_title "Install Albert (Launcher)"
+echo ""
+echo "deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_24.04/ /" | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
+curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_manuelschneid3r.gpg >/dev/null
+sudo apt update
+sudo apt install -y albert
+
+##
+print_title "Install Logiops (Logitech Driver)"
+echo ""
+sudo apt-get install -y cmake pkg-config libevdev-dev libudev-dev libconfig++-dev libglib2.0-dev
+if [ ! -d "/tmp/logiops" ]; then
+  git clone https://github.com/PixlOne/logiops.git /tmp/logiops/
+fi
+(
+  cd /tmp/logiops/ || exit
+  mkdir -p build
+  cd build
+  cmake ..
+  make
+  sudo make install
+  sudo systemctl enable --now logid
+)

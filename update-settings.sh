@@ -1,23 +1,29 @@
-bold=$(tput bold)
-normal=$(tput sgr0)
+#!/bin/sh
+set -eu
+
+# Colors and styles
+BOLD=$(tput bold)
+RESET=$(tput sgr0)
+BLUE=$(tput setaf 4)
+GREEN=$(tput setaf 2)
+
+print_title() {
+    echo ""
+    echo "${BLUE}==>${RESET} ${BOLD}${GREEN}$1${RESET}"
+    echo ""
+}
 
 ##
-sudo echo "${bold}Update settigns/keybindings${normal}"
-echo ""
-
+print_title "Update settings/keybindings"
 sh ./files/dconf/dconf-load.sh
 
 ##
-echo ""
-echo "${bold}Setup tilix as default${normal}"
-echo ""
-sudo update-alternatives --config x-terminal-emulator
-
-##
-echo ""
-echo "${bold}Install custom dotfiles${normal}"
-echo ""
-git clone https://github.com/Racle/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles || exit 1
-make stow
-make link-root
+print_title "Install custom dotfiles"
+if [ ! -d "$HOME/.dotfiles" ]; then
+    git clone https://github.com/Racle/dotfiles.git ~/.dotfiles
+    cd ~/.dotfiles || exit 1
+    make stow
+    make link-root
+else
+    echo "Dotfiles already installed."
+fi

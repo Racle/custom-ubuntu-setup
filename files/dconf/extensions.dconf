@@ -38,33 +38,6 @@ x-res=false
 y-pos=2.0
 y-res=false
 
-[pop-cosmic]
-clock-alignment='CENTER'
-overlay-key-action='LAUNCHER'
-show-applications-button=false
-show-workspaces-button=false
-
-[pop-shell]
-activate-launcher=['<Super>Space']
-active-hint=true
-active-hint-border-radius=uint32 5
-focus-monitor-left=@as []
-focus-monitor-right=@as []
-fullscreen-launcher=false
-gap-inner=uint32 1
-gap-outer=uint32 1
-search=['<Super>Space']
-show-title=true
-smart-gaps=false
-snap-to-grid=false
-tile-by-default=true
-tile-orientation=['<Super>o']
-tile-resize-down=['<Shift>Up']
-tile-resize-left=['<Shift>Right']
-tile-resize-right=['<Shift>Left']
-tile-resize-up=['<Shift>Down']
-toggle-tiling=['<Primary><Shift><Super>y']
-
 [simplenetspeed]
 fontmode=3
 mode=2
@@ -72,8 +45,3 @@ mode=2
 [sound-output-device-chooser]
 ports-settings='{"version":3,"ports":[]}'
 
-[tilix-dropdown]
-key=['F10']
-
-[user-theme]
-name='Pop-dark'
