@@ -40,6 +40,9 @@ for FONT in Hack FiraCode FiraMono Ubuntu UbuntuMono JetBrainsMono RobotoMono; d
   fi
 done
 
+# Install Roboto Slab from Google Fonts if not already present
+mkdir -p ~/.local/share/fonts && wget -O ~/.local/share/fonts/RobotoSlab.ttf "https://github.com/google/fonts/raw/main/apache/robotoslab/RobotoSlab%5Bwght%5D.ttf" && fc-cache -fv
+
 ##
 echo ""
 echo "${bold}Install oh-my-zsh and theme+plugins${normal}"
