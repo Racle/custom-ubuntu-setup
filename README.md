@@ -1,4 +1,4 @@
-# Custom-~~ubuntu~~pop_os-setup
+# Custom-ubuntu-setup
 
 ## Dotfiles
 <https://github.com/Racle/dotfiles>
@@ -21,7 +21,7 @@ make install
 make defaults
 ```
 
-### install zhs 
+### install zhs
 ```
 make zsh
 ```
@@ -30,7 +30,7 @@ make zsh
 ```
 make update
 ```
-### install vimconfig 
+### install vimconfig
 <https://github.com/Racle/vimfiles>
 ```
 wget https://raw.githubusercontent.com/Racle/vimfiles/master/.vimrc -O ~/.vimrc
