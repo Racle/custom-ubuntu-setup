@@ -186,6 +186,7 @@ fi
 ##
 print_title "Install lazygit with go"
 echo ""
+export PATH=$PATH:/usr/local/go/bin
 go install github.com/jesseduffield/lazygit@latest
 
 ##
