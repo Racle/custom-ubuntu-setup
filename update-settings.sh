@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 # Colors and styles
@@ -8,22 +8,22 @@ BLUE=$(tput setaf 4)
 GREEN=$(tput setaf 2)
 
 print_title() {
-    echo ""
-    echo "${BLUE}==>${RESET} ${BOLD}${GREEN}$1${RESET}"
-    echo ""
+  echo ""
+  echo "${BLUE}==>${RESET} ${BOLD}${GREEN}$1${RESET}"
+  echo ""
 }
 
 ##
 print_title "Update settings/keybindings"
-sh ./files/dconf/dconf-load.sh
+bash ./files/dconf/dconf-load.sh
 
 ##
 print_title "Install custom dotfiles"
 if [ ! -d "$HOME/.dotfiles" ]; then
-    git clone https://github.com/Racle/dotfiles.git ~/.dotfiles
-    cd ~/.dotfiles || exit 1
-    make stow
-    make link-root
+  git clone https://github.com/Racle/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles || exit 1
+  make stow
+  make link-root
 else
-    echo "Dotfiles already installed."
+  echo "Dotfiles already installed."
 fi

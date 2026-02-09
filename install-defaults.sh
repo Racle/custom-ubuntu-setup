@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 # Colors and styles
@@ -31,7 +31,7 @@ print_title "Install neovim repo"
 echo ""
 # This script updates Neovim to the latest nightly AppImage version and extracts it.
 (
-  sudo sh ./files/setup/nvim.sh
+  sudo bash ./files/setup/nvim.sh
 )
 
 print_title "Enable gnome tweak tool repo"
@@ -48,6 +48,7 @@ sudo apt-get install -y zsh \
   ca-certificates \
   curl \
   gnupg-agent \
+  gnupg \
   python3 \
   python3-pip \
   build-essential \
@@ -84,13 +85,14 @@ sudo apt-get install -y zsh \
   jq \
   imagemagick \
   fd-find \
-  gnome-terminal
+  gnome-terminal \
+  flatpak
 
 ##
 print_title "Install go"
 echo ""
 (
-  sudo sh ./files/setup/go.sh
+  sudo bash ./files/setup/go.sh
 )
 
 ##
@@ -104,7 +106,11 @@ echo ""
 (
   # Ensure cargo is in path
   . "$HOME/.cargo/env"
-  cargo install --locked --force yazi-build
+  if ! command -v yazi >/dev/null 2>&1; then
+    cargo install --locked --force yazi-build
+  else
+    echo "yazi already installed, skipping."
+  fi
 )
 
 ##
@@ -123,7 +129,7 @@ print_title "Install kitty and set as default terminal"
 echo ""
 (
   # Run as user to install in user home
-  sh ./files/setup/kitty.sh
+  bash ./files/setup/kitty.sh
 )
 
 ##
@@ -199,7 +205,26 @@ rm "git-delta_${DELTA_VERSION}_amd64.deb"
 
 print_title "Install zellij and aichat"
 echo ""
-cargo install zellij aichat
+(
+  # Ensure cargo is in path
+  . "$HOME/.cargo/env"
+  pkgs=""
+  if ! command -v zellij >/dev/null 2>&1; then
+    pkgs="$pkgs zellij"
+  else
+    echo "zellij already installed, skipping."
+  fi
+  if ! command -v aichat >/dev/null 2>&1; then
+    pkgs="$pkgs aichat"
+  else
+    echo "aichat already installed, skipping."
+  fi
+
+  if [ -n "$pkgs" ]; then
+    # shellcheck disable=SC2086
+    cargo install $pkgs
+  fi
+)
 
 ##
 print_title "Install terraform"
@@ -282,3 +307,9 @@ fi
   sudo make install
   sudo systemctl enable --now logid
 )
+
+if [ -f "./files/logid.cfg" ]; then
+  echo "Copying logid.cfg..."
+  sudo cp ./files/logid.cfg /etc/logid.cfg
+  sudo systemctl restart logid
+fi

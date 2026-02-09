@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cd /tmp || exit
 rm -rf go*.tar.gz
 LATEST_GO_VERSION="$(curl --silent "https://go.dev/VERSION?m=text" | head -n 1)"

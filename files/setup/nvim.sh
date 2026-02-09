@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 url=$(curl -s https://api.github.com/repos/neovim/neovim/releases/tags/nightly |
   grep "browser_download_url" |
   grep "nvim-linux-x86_64.appimage" |
