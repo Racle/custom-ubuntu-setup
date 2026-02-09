@@ -22,8 +22,8 @@ print_title "Install custom dotfiles"
 if [ ! -d "$HOME/.dotfiles" ]; then
   git clone https://github.com/Racle/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles || exit 1
-  make link-root
   make stow
+  make link-root
 else
   echo "Dotfiles already installed."
 fi
