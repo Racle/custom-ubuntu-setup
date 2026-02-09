@@ -104,7 +104,7 @@ echo ""
 (
   # Ensure cargo is in path
   . "$HOME/.cargo/env"
-  cargo install --locked yazi-fm yazi-cli
+  cargo install --locked --force yazi-build
 )
 
 ##
