@@ -1,16 +1,19 @@
 [/]
 area-screenshot=@as []
 area-screenshot-clip=@as []
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 email=@as []
 home=@as []
 play=@as []
+rotate-video-lock-static=@as []
 screensaver=['<Primary><Alt>l']
 screenshot=@as []
 screenshot-clip=@as []
 search=@as []
+terminal=['<Super>t']
 window-screenshot=@as []
 window-screenshot-clip=@as []
+www=['<Super>b']
 
 [custom-keybindings/PopLaunch1]
 binding='Launch1'
@@ -28,7 +31,7 @@ command='pkexec bash -c "systemctl restart logid"'
 name='restart logiops'
 
 [custom-keybindings/custom2]
-binding='<Primary><Shift>space'
+binding='<Shift><Super>space'
 command='albert toggle'
 name='Albert toggle'
 
@@ -43,22 +46,16 @@ command='copyq -e "menu()"'
 name='Copyq toggle'
 
 [custom-keybindings/custom5]
-binding='Print'
-command='flameshot gui'
+binding='<Super>Print'
+command='sh -c -- "flameshot gui"'
 name='Flameshot'
 
-[custom-keybindings/custom6]
-binding='<Shift>Print'
-command='flameshot gui'
-name='Flameshot Alternative'
-
 [custom-keybindings/custom7]
-binding='<Primary>Print'
-command='flameshot gui -d 3000'
+binding='<Control>Print'
+command='sh -c -- "flameshot gui -d 3000"'
 name='Flameshot Delay'
 
 [custom-keybindings/custom8]
 binding='<Alt>Print'
-command='flameshot screen -c'
+command='sh -c -- "flameshot screen -c"'
 name='Flameshot Current Monitor'
-

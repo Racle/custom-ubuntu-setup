@@ -1,6 +1,10 @@
 [/]
 action-double-click-titlebar='toggle-maximize'
 action-middle-click-titlebar='minimize'
+auto-raise=true
 button-layout=':minimize,maximize,close'
+focus-mode='sloppy'
 focus-new-windows='smart'
-num-workspaces=4
+num-workspaces=6
+resize-with-right-button=true
+workspace-names=@as []
