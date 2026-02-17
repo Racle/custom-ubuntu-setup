@@ -89,6 +89,10 @@ sudo apt-get install -y zsh \
   flatpak
 
 ##
+print_title "Disable screenshot sound"
+sudo mv /usr/share/sounds/freedesktop/stereo/camera-shutter.oga /usr/share/sounds/freedesktop/stereo/camera-shutter-disabled.oga
+
+##
 print_title "Install go"
 echo ""
 (
