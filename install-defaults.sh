@@ -211,17 +211,12 @@ wget "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git
 sudo dpkg -i "git-delta_${DELTA_VERSION}_amd64.deb"
 rm "git-delta_${DELTA_VERSION}_amd64.deb"
 
-print_title "Install zellij and aichat"
+print_title "Install aichat"
 echo ""
 (
   # Ensure cargo is in path
   . "$HOME/.cargo/env"
   pkgs=""
-  if ! command -v zellij >/dev/null 2>&1; then
-    pkgs="$pkgs zellij"
-  else
-    echo "zellij already installed, skipping."
-  fi
   if ! command -v aichat >/dev/null 2>&1; then
     pkgs="$pkgs aichat"
   else
