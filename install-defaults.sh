@@ -280,6 +280,7 @@ print_title "Set neovim as default editor"
 echo ""
 # Note: Pointing to /usr/local/bin/nvim which is where the nightly script installs it
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 100
+git config --global core.editor nvim
 
 ##
 print_title "(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker"
