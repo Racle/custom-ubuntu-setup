@@ -1,9 +1,6 @@
 [auto-move-windows]
 application-list=['io.dbeaver.DBeaverCommunity.desktop:4', 'org.remmina.Remmina.desktop:5', 'com.slack.Slack.desktop:2', 'org.signal.Signal.desktop:2', 'com.spotify.Client.desktop:2', 'com.discordapp.Discord.desktop:3', 'google-chrome.desktop:2']
 
-[babar]
-display-activities=false
-
 [dash-to-dock]
 apply-custom-theme=true
 background-opacity=0.80000000000000004
@@ -32,21 +29,6 @@ check-x11wayland=true
 inner-gaps=0
 outer-gaps=0
 pointer-follows-focus=false
-
-[kylecorry31-do-not-disturb]
-show-icon=false
-
-[netspeed]
-device='ens33'
-show-sum=false
-
-[panel-osd]
-force-expand=true
-test-notification=false
-x-pos=99.0
-x-res=false
-y-pos=2.0
-y-res=false
 
 [paperwm]
 animation-time=0.25
@@ -140,7 +122,4 @@ index=2
 [simplenetspeed]
 fontmode=3
 mode=3
-
-[sound-output-device-chooser]
-ports-settings='{"version":3,"ports":[]}'
 
