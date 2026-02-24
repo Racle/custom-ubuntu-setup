@@ -288,12 +288,19 @@ echo ""
 echo "sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
 
 ##
-print_title "Install Albert (Launcher)"
+# print_title "Install Albert (Launcher)"
+# echo ""
+# echo "deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_24.04/ /" | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
+# curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_manuelschneid3r.gpg >/dev/null
+# sudo apt update
+# sudo apt install -y albert
+
+##
+print_title "Install Remmina (Remote Desktop Client)"
 echo ""
-echo "deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_24.04/ /" | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
-curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_manuelschneid3r.gpg >/dev/null
+sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
 sudo apt update
-sudo apt install -y albert
+sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
 
 ##
 print_title "Install Logiops (Logitech Driver)"
