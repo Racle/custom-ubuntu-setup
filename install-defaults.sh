@@ -14,7 +14,6 @@ print_title() {
 }
 
 print_title "Set ubuntu mirror to fi"
-echo ""
 # Ubuntu 24.04 uses ubuntu.sources
 if [ -f /etc/apt/sources.list.d/ubuntu.sources ]; then
   sudo sed -i 's/us.archive/fi.archive/' /etc/apt/sources.list.d/ubuntu.sources
@@ -24,24 +23,19 @@ elif [ -f /etc/apt/sources.list ]; then
 fi
 
 print_title "Install nodejs 22 repo"
-echo ""
 curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 
 print_title "Install neovim repo"
-echo ""
 # This script updates Neovim to the latest nightly AppImage version and extracts it.
 (
   sudo bash ./files/setup/nvim.sh
 )
 
 print_title "Enable gnome tweak tool repo"
-echo ""
 sudo add-apt-repository universe -y
 
 ##
 print_title "Install defaults"
-
-echo ""
 sudo apt-get install -y zsh \
   git \
   apt-transport-https \
@@ -98,19 +92,16 @@ fi
 
 ##
 print_title "Install go"
-echo ""
 (
   sudo bash ./files/setup/go.sh
 )
 
 ##
 print_title "Install rust & cargo"
-echo ""
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 ##
 print_title "Install yazi (file manager)"
-echo ""
 (
   # Ensure cargo is in path
   . "$HOME/.cargo/env"
@@ -123,7 +114,6 @@ echo ""
 
 ##
 print_title "Install dotnet"
-echo ""
 (
   if ! command -v dotnet >/dev/null 2>&1; then
     cd /tmp || exit
@@ -138,7 +128,6 @@ echo ""
 
 ##
 print_title "Install kitty and set as default terminal"
-echo ""
 (
   # Run as user to install in user home
   bash ./files/setup/kitty.sh
@@ -146,19 +135,16 @@ echo ""
 
 ##
 print_title "Install google-chrome"
-echo ""
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O ~/chrome.deb
 sudo dpkg -i ~/chrome.deb
 rm ~/chrome.deb
 
 ##
 print_title "Install VS Code"
-echo ""
 sudo snap install code --classic
 
 ##
 print_title "Install docker + docker-compose"
-echo ""
 sudo apt-get install -y ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -172,7 +158,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 
 ##
 print_title "Install gnome templates"
-echo ""
 if [ ! -d "$HOME/Templates" ]; then
   cp ./files/Templates.tar.gz "$HOME/Templates.tar.gz"
   tar -xzvf "$HOME/Templates.tar.gz" -C "$HOME"
@@ -183,7 +168,6 @@ fi
 
 ##
 print_title "Install tmux plugin manager"
-echo ""
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   # Install tmux plugin manager if not already present
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
@@ -193,7 +177,6 @@ fi
 
 ##
 print_title "Install ranger icons (keeping for legacy/other tools)"
-echo ""
 if [ ! -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
   # Install ranger_devicons plugin for ranger if not already present
   git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
@@ -203,20 +186,17 @@ fi
 
 ##
 print_title "Install lazygit with go"
-echo ""
 export PATH=$PATH:/usr/local/go/bin
 go install github.com/jesseduffield/lazygit@latest
 
 ##
 print_title "Install delta"
-echo ""
 DELTA_VERSION="0.18.2"
 wget "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_amd64.deb"
 sudo dpkg -i "git-delta_${DELTA_VERSION}_amd64.deb"
 rm "git-delta_${DELTA_VERSION}_amd64.deb"
 
 print_title "Install aichat"
-echo ""
 (
   # Ensure cargo is in path
   . "$HOME/.cargo/env"
@@ -235,7 +215,6 @@ echo ""
 
 ##
 print_title "Install terraform"
-echo ""
 {
   wget -O- https://apt.releases.hashicorp.com/gpg |
     gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg >/dev/null
@@ -248,7 +227,6 @@ https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/
 
 ##
 print_title "Install flatpak packages"
-echo ""
 # Ensure flathub remote exists
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
@@ -266,7 +244,6 @@ flatpak --user install flathub com.github.tchx84.Flatseal -y
 
 ##
 print_title "Set max file watchers"
-echo ""
 if ! grep -q 'fs.inotify.max_user_watches=524288' /etc/sysctl.conf; then
   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
   sudo sysctl --system
@@ -276,19 +253,16 @@ fi
 
 ##
 print_title "Set cursor repeat rate (xset r rate 210 30) (add also to .profile)"
-echo ""
 xset r rate 210 30 || echo "xset not available (no display?), skipping." # Consider adding to ~/.profile for persistence
 
 ##
 print_title "Set neovim as default editor"
-echo ""
 # Note: Pointing to /usr/local/bin/nvim which is where the nightly script installs it
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 100
 git config --global core.editor nvim
 
 ##
 print_title "(copied to clipboard) run manually sudo chmod +x /usr/local/bin/docker-compose && sudo usermod -aG docker $USER && newgrp docker"
-echo ""
 echo "sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
 
 ##
@@ -301,14 +275,12 @@ echo "sudo usermod -aG docker \$USER && newgrp docker" | xclip -sel clip
 
 ##
 print_title "Install Remmina (Remote Desktop Client)"
-echo ""
 sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
 sudo apt update
 sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
 
 ##
 print_title "Install Logiops (Logitech Driver)"
-echo ""
 sudo apt-get install -y cmake pkg-config libevdev-dev libudev-dev libconfig++-dev libglib2.0-dev
 if [ ! -d "/tmp/logiops" ]; then
   git clone https://github.com/PixlOne/logiops.git /tmp/logiops/
