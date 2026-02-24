@@ -90,7 +90,11 @@ sudo apt-get install -y zsh \
 
 ##
 print_title "Disable screenshot sound"
-sudo mv /usr/share/sounds/freedesktop/stereo/camera-shutter.oga /usr/share/sounds/freedesktop/stereo/camera-shutter-disabled.oga
+if [ -f /usr/share/sounds/freedesktop/stereo/camera-shutter.oga ]; then
+  sudo mv /usr/share/sounds/freedesktop/stereo/camera-shutter.oga /usr/share/sounds/freedesktop/stereo/camera-shutter-disabled.oga
+else
+  echo "Screenshot sound already disabled, skipping."
+fi
 
 ##
 print_title "Install go"
@@ -155,16 +159,16 @@ sudo snap install code --classic
 ##
 print_title "Install docker + docker-compose"
 echo ""
-sudo apt-get install ca-certificates curl gnupg
+sudo apt-get install -y ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "${VERSION_CODENAME:-$VERSION_CODENAME}") stable" |
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" |
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 ##
 print_title "Install gnome templates"
@@ -273,7 +277,7 @@ fi
 ##
 print_title "Set cursor repeat rate (xset r rate 210 30) (add also to .profile)"
 echo ""
-xset r rate 210 30 # Consider adding to ~/.profile for persistence
+xset r rate 210 30 || echo "xset not available (no display?), skipping." # Consider adding to ~/.profile for persistence
 
 ##
 print_title "Set neovim as default editor"

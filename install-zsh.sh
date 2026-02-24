@@ -48,7 +48,7 @@ echo ""
 echo "${bold}Install oh-my-zsh and theme+plugins${normal}"
 echo ""
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 else
   echo "Oh My Zsh already installed. Skipping."
 fi

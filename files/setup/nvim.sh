@@ -11,7 +11,7 @@ if [ -z "$url" ]; then
   echo "Please visit the Neovim releases page to find the latest AppImage."
   echo "You can find the latest Neovim AppImage at: https://github.com/neovim/neovim/releases/"
   xdg-open "https://github.com/neovim/neovim/releases/" >/dev/null 2>&1
-  read -p -r "Enter the Neovim AppImage download URL: " url
+  read -rp "Enter the Neovim AppImage download URL: " url
 fi
 
 basedir="/tmp/nvim_$(date +%s)"

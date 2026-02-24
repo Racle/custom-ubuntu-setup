@@ -26,4 +26,4 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 sudo update-alternatives --set x-terminal-emulator /home/$USER/.local/bin/kitty
 
 # install kitty-terminfo package
-sudo apt install kitty-terminfo
+sudo apt install -y kitty-terminfo
