@@ -300,3 +300,31 @@ if [ -f "./files/logid.cfg" ]; then
   sudo cp ./files/logid.cfg /etc/logid.cfg
   sudo systemctl restart logid
 fi
+
+##
+print_title "Install GNOME extensions"
+# Install gext (GNOME Extension Manager CLI) via pipx
+if ! command -v gext >/dev/null 2>&1; then
+  pipx install gnome-extensions-cli --system-site-packages
+else
+  echo "gext already installed, skipping."
+fi
+
+# Extensions installable from extensions.gnome.org
+GNOME_EXTENSIONS=(
+  "gsconnect@andyholmes.github.io"                              # GSConnect
+  "paperwm@paperwm.github.com"                                  # PaperWM
+  "simplenetspeed@biji.extension"                               # Simple net speed
+  "window-state-manager@kishorv06.github.io"                    # Window State Manager
+  "Bluetooth-Battery-Meter@maniacx.github.com"                  # Bluetooth Battery Meter
+  "wiggle@mechtifs"                                             # Wiggle
+  "auto-move-windows@gnome-shell-extensions.gcampax.github.com" # Auto Move Windows
+)
+
+for ext_id in "${GNOME_EXTENSIONS[@]}"; do
+  gext install "$ext_id" || echo "Failed to install extension $ext_id, skipping."
+done
+
+# Disable extensions that conflict with paperwm or are not needed
+gnome-extensions disable "ding@rastersoft.com"         # Desktop Icons NG (DING)
+gnome-extensions disable "tiling-assistant@ubuntu.com" # Ubuntu Tiling Assistant
