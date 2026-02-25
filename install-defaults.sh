@@ -140,8 +140,8 @@ sudo dpkg -i ~/chrome.deb
 rm ~/chrome.deb
 
 ##
-print_title "Install VS Code"
-sudo snap install code --classic
+# print_title "Install VS Code"
+# sudo snap install code --classic
 
 ##
 print_title "Install docker + docker-compose"
