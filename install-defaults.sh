@@ -196,23 +196,6 @@ wget "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git
 sudo dpkg -i "git-delta_${DELTA_VERSION}_amd64.deb"
 rm "git-delta_${DELTA_VERSION}_amd64.deb"
 
-print_title "Install aichat"
-(
-  # Ensure cargo is in path
-  . "$HOME/.cargo/env"
-  pkgs=""
-  if ! command -v aichat >/dev/null 2>&1; then
-    pkgs="$pkgs aichat"
-  else
-    echo "aichat already installed, skipping."
-  fi
-
-  if [ -n "$pkgs" ]; then
-    # shellcheck disable=SC2086
-    cargo install $pkgs
-  fi
-)
-
 ##
 print_title "Install terraform"
 {
