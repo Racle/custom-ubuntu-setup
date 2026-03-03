@@ -297,7 +297,7 @@ fi
 GNOME_EXTENSIONS=(
   "gsconnect@andyholmes.github.io"                              # GSConnect
   "paperwm@paperwm.github.com"                                  # PaperWM
-  "simplenetspeed@biji.extension"                               # Simple net speed
+  "netspeed@alynx.one"                                          # Net speed
   "window-state-manager@kishorv06.github.io"                    # Window State Manager
   "Bluetooth-Battery-Meter@maniacx.github.com"                  # Bluetooth Battery Meter
   "wiggle@mechtifs"                                             # Wiggle
