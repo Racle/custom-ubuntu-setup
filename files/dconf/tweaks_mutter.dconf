@@ -1,0 +1,13 @@
+[/]
+attach-modal-dialogs=false
+dynamic-workspaces=false
+edge-tiling=false
+workspaces-only-on-primary=false
+
+[keybindings]
+cancel-input-capture=@as []
+toggle-tiled-left=@as []
+toggle-tiled-right=@as []
+
+[wayland/keybindings]
+restore-shortcuts=@as []

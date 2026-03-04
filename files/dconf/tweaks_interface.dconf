@@ -1,0 +1,13 @@
+[/]
+clock-show-weekday=true
+color-scheme='prefer-dark'
+document-font-name='Roboto Slab 11'
+enable-hot-corners=true
+font-antialiasing='rgba'
+font-name='Noto Sans 10'
+gtk-enable-primary-paste=false
+gtk-theme='Yaru-dark'
+icon-theme='Yaru'
+monospace-font-name='FiraMono Nerd Font 11'
+show-battery-percentage=true
+text-scaling-factor=1.0

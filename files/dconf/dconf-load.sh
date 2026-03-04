@@ -6,8 +6,8 @@ cd "$BASEDIR"
 read -p "This will overwrite your current GNOME settings. Do you want to continue? (y/n) " answer
 
 if [[ "$answer" != "y" ]]; then
-  echo "Aborting."
-  exit 0
+	echo "Aborting."
+	exit 0
 fi
 
 echo "${bold}Set SSH user@url: ${normal}"
@@ -22,6 +22,10 @@ dconf load /org/gnome/terminal/legacy/profiles:/ <terminal-profiles.dconf
 dconf load /org/gnome/shell/extensions/ <extensions.dconf
 dconf load /org/gnome/desktop/wm/preferences/ <preferences.dconf
 dconf load /org/gnome/desktop/peripherals/keyboard/ <keyboard.dconf
+dconf load /org/gnome/meld/ <meld.dconf
 dconf load /org/gnome/shell/extensions/paperwm/ <paperwm.dconf
+# Gnome Tweaks changes
+dconf load /org/gnome/desktop/interface/ <tweaks_interface.dconf
+dconf load /org/gnome/mutter/ <tweaks_mutter.dconf
 
 sed -i "s/ssh .*$/ssh SSH_URL'/" custom-keybindings.dconf

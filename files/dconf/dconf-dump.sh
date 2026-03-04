@@ -12,5 +12,8 @@ dconf dump /org/gnome/shell/extensions/ | awk '
 dconf dump /org/gnome/desktop/wm/preferences/ >preferences.dconf
 dconf dump /org/gnome/desktop/peripherals/keyboard/ >keyboard.dconf
 dconf dump /org/gnome/meld/ >meld.dconf
+# Gnome Tweaks changes
+dconf dump /org/gnome/desktop/interface/ >tweaks_interface.dconf
+dconf dump /org/gnome/mutter/ >tweaks_mutter.dconf
 
 sed -i "s/ssh .*$/ssh SSH_URL'/" custom-keybindings.dconf
