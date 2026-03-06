@@ -217,13 +217,20 @@ flatpak --user install flathub com.redis.RedisInsight -y
 flatpak --user install flathub com.getpostman.Postman -y
 flatpak --user install flathub com.discordapp.Discord -y
 flatpak --user install com.slack.Slack -y
-flatpak --user install com.spotify.Client -y
 flatpak --user install org.signal.Signal -y
 #dbeaver + extras
 flatpak --user install flathub io.dbeaver.DBeaverCommunity -y
 flatpak --user install io.dbeaver.DBeaverCommunity.Client.pgsql -y
 flatpak --user install io.dbeaver.DBeaverCommunity.Client.mariadb -y
 flatpak --user install flathub com.github.tchx84.Flatseal -y
+
+##
+print_title "Install Spotify (snap) + fix blue border"
+sudo snap install spotify
+mkdir -p ~/.local/share/applications
+cp /var/lib/snapd/desktop/applications/spotify_spotify.desktop ~/.local/share/applications/
+sed -i 's|Exec=.*|Exec=snap run spotify --ozone-platform=x11 %U|' ~/.local/share/applications/spotify_spotify.desktop
+update-desktop-database ~/.local/share/applications
 
 ##
 print_title "Set max file watchers"
