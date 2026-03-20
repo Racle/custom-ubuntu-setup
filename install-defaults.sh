@@ -216,7 +216,6 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak --user install flathub com.redis.RedisInsight -y
 flatpak --user install flathub com.getpostman.Postman -y
 flatpak --user install flathub com.discordapp.Discord -y
-flatpak --user install com.slack.Slack -y
 flatpak --user install org.signal.Signal -y
 #dbeaver + extras
 flatpak --user install flathub io.dbeaver.DBeaverCommunity -y
@@ -231,6 +230,10 @@ mkdir -p ~/.local/share/applications
 cp /var/lib/snapd/desktop/applications/spotify_spotify.desktop ~/.local/share/applications/
 sed -i 's|Exec=.*|Exec=snap run spotify --ozone-platform=x11 %U|' ~/.local/share/applications/spotify_spotify.desktop
 update-desktop-database ~/.local/share/applications
+
+##
+print_title "Install Slack (snap)"
+sudo snap install slack
 
 ##
 print_title "Set max file watchers"
