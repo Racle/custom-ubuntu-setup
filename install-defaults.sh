@@ -80,7 +80,8 @@ sudo apt-get install -y zsh \
   imagemagick \
   fd-find \
   gnome-terminal \
-  flatpak
+  flatpak \
+  chafa
 
 ##
 print_title "Disable screenshot sound"
@@ -132,6 +133,20 @@ print_title "Install kitty and set as default terminal"
   # Run as user to install in user home
   bash ./files/setup/kitty.sh
 )
+
+##
+print_title "Install ghostty"
+if ! command -v ghostty >/dev/null 2>&1; then
+  sudo add-apt-repository ppa:mkasberg/ghostty-ubuntu -y
+  sudo apt update
+  sudo apt install -y ghostty
+else
+  echo "ghostty already installed, skipping."
+fi
+
+# Set ghostty as default terminal
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/ghostty 60
+sudo update-alternatives --set x-terminal-emulator /usr/bin/ghostty
 
 ##
 print_title "Install google-chrome"
