@@ -224,6 +224,10 @@ https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/
 }
 
 ##
+print_title "Install Azure CLI"
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+##
 print_title "Install flatpak packages"
 # Ensure flathub remote exists
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
