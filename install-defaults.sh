@@ -255,6 +255,10 @@ print_title "Install Slack (snap)"
 sudo snap install slack
 
 ##
+print_title "Install safe-chain (Aikido, https://github.com/AikidoSec/safe-chain)"
+curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh
+
+##
 print_title "Set max file watchers"
 if ! grep -q 'fs.inotify.max_user_watches=524288' /etc/sysctl.conf; then
   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
