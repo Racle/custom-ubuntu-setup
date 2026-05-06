@@ -81,7 +81,8 @@ sudo apt-get install -y zsh \
   fd-find \
   gnome-terminal \
   flatpak \
-  chafa
+  chafa \
+  sshpass
 
 ##
 print_title "Disable screenshot sound"
