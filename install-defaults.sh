@@ -82,7 +82,8 @@ sudo apt-get install -y zsh \
   gnome-terminal \
   flatpak \
   chafa \
-  sshpass
+  sshpass \
+  whois
 
 ##
 print_title "Disable screenshot sound"
@@ -91,6 +92,14 @@ if [ -f /usr/share/sounds/freedesktop/stereo/camera-shutter.oga ]; then
 else
   echo "Screenshot sound already disabled, skipping."
 fi
+
+##
+print_title "Install opencode"
+npm i -g opencode-ai@latest
+
+##
+print_title "Install opencode agent-team-pipeline"
+curl -sSL https://raw.githubusercontent.com/Racle/agent-team-pipeline/master/scripts/install.sh | bash
 
 ##
 print_title "Install go"
