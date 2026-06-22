@@ -113,15 +113,28 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 ##
 print_title "Install yazi (file manager)"
-(
-  # Ensure cargo is in path
-  . "$HOME/.cargo/env"
-  if ! command -v yazi >/dev/null 2>&1; then
-    cargo install --locked --force yazi-build
-  else
-    echo "yazi already installed, skipping."
-  fi
-)
+if ! command -v yazi >/dev/null 2>&1; then
+  YAZI_VERSION=$(curl -sL https://api.github.com/repos/sxyazi/yazi/releases/latest | jq -r '.tag_name')
+  curl -sL "https://github.com/sxyazi/yazi/releases/download/${YAZI_VERSION}/yazi-x86_64-unknown-linux-musl.zip" -o /tmp/yazi.zip
+  unzip -o /tmp/yazi.zip -d /tmp/yazi
+  sudo install -m 755 /tmp/yazi/yazi-x86_64-unknown-linux-musl/yazi /usr/local/bin/yazi
+  sudo install -m 755 /tmp/yazi/yazi-x86_64-unknown-linux-musl/ya /usr/local/bin/ya
+  rm -rf /tmp/yazi /tmp/yazi.zip
+else
+  echo "yazi already installed, skipping."
+fi
+
+##
+print_title "Install zellij (terminal multiplexer)"
+if ! command -v zellij >/dev/null 2>&1; then
+  ZELLIJ_VERSION=$(curl -sL https://api.github.com/repos/zellij-org/zellij/releases/latest | jq -r '.tag_name')
+  curl -sL "https://github.com/zellij-org/zellij/releases/download/${ZELLIJ_VERSION}/zellij-x86_64-unknown-linux-musl.tar.gz" -o /tmp/zellij.tar.gz
+  tar -xzf /tmp/zellij.tar.gz -C /tmp
+  sudo install -m 755 /tmp/zellij /usr/local/bin/zellij
+  rm -f /tmp/zellij /tmp/zellij.tar.gz
+else
+  echo "zellij already installed, skipping."
+fi
 
 ##
 print_title "Install dotnet"
@@ -213,6 +226,15 @@ fi
 print_title "Install lazygit with go"
 export PATH=$PATH:/usr/local/go/bin
 go install github.com/jesseduffield/lazygit@latest
+
+##
+print_title "Install engram (AI agent memory)"
+go install github.com/Gentleman-Programming/engram/cmd/engram@latest
+mkdir -p "$HOME/.config/systemd/user"
+cp ./files/setup/engram.service "$HOME/.config/systemd/user/engram.service"
+systemctl --user daemon-reload
+systemctl --user enable --now engram
+engram setup opencode
 
 ##
 print_title "Install delta"

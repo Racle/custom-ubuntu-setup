@@ -1,0 +1,11 @@
+[Unit]
+Description=Engram memory server
+After=default.target
+
+[Service]
+ExecStart=%h/go/bin/engram serve
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
