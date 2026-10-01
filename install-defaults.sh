@@ -236,6 +236,9 @@ systemctl --user daemon-reload
 systemctl --user enable --now engram
 engram setup opencode
 
+print_title "Install bitbucket-cli https://github.com/avivsinai/bitbucket-cli"
+go install github.com/avivsinai/bitbucket-cli/cmd/bkt@latest
+
 ##
 print_title "Install delta"
 DELTA_VERSION="0.18.2"
